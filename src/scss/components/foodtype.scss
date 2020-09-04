@@ -1,0 +1,26 @@
+@import'../../scss/settings/settings';
+
+.types{
+    position: relative;
+    margin-top: -2%;
+    margin-bottom: 5%;
+    .center{
+        a{
+            padding: 10px;
+            margin: 2%;
+            border: 2px solid $baseRose;
+            border-radius: 30px;
+            color: $defaultText;
+            font-weight: bold;
+            background: darken($color: $baseGrey , $amount: 100%);
+            cursor: pointer;
+            &:hover{
+                border: 2px solid $defaultText;
+            }
+        }
+        .active{
+            background:  lighten($color: $baseRose, $amount: 4);
+            border: 2px solid rgba(51, 51, 51, 0.7);
+        }
+    }
+}

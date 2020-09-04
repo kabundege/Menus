@@ -1,0 +1,73 @@
+.blob{
+    background: url('../../assets/blob.svg') no-repeat;
+    background-position: max($numbers: 35%);
+    height: 100vh;
+    background-size: max($numbers: 800px);
+}
+    
+.loginbox{
+    width: 500px;
+    padding: 70px 20px;
+    background: rgba(75, 75, 75, 0.1);
+    color: white;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    box-shadow: 0 10px 50px 0px rgba(0, 0, 0, 0.3), 0px 8px 20px 0px rgba(5, 5, 5, 0.35);
+    display: grid;
+
+    .avatar {
+        width: 60%;
+        height: 100px;
+        border-radius: 50%;
+        text-align: center;
+        position: relative;
+        left: 20%;
+        opacity: 0.8;
+    }
+
+    h1  {
+        padding: 20px;
+        text-align: center;
+        font-size: 22px;
+    }
+
+    p   {
+        margin: 0;
+        padding: 0;
+        font-weight:bold;
+    }
+
+    input[type="number"]    {
+        border: none;
+        border-bottom: 2px solid #fff;
+        border-radius: 10px;
+        background: rgba(245, 245, 245, 0.5);
+        color: white;
+        outline: none;
+        font-size: 18px;
+        width: 95%;
+        padding: 10px;
+        margin: 2% 0%;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    button  {
+        border: none;
+        outline: none;
+        height: 40px;
+        width: 100%;
+        background: linear-gradient(-90deg, rgba(0, 204, 255, 0.444),rgba(255, 0, 221, 0.464),rgba(255, 255, 0, 0.712));
+        color: #fff;
+        font-size: 20px;
+        border-radius: 20px;
+        margin: 2% 0;
+
+        &:hover{
+            cursor: pointer;
+            background: linear-gradient(to right, rgba(0, 204, 255, 0.444),rgba(255, 0, 221, 0.692),rgba(255, 255, 0, 0.692) );
+        }
+    }
+}

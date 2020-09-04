@@ -1,0 +1,93 @@
+@import'../settings/settings';
+
+nav{
+    display: flex;
+    padding: 70px 20px;
+    background: $headerWave no-repeat;
+    background-size: cover;
+    height: 40vh;
+    box-shadow: none;
+    position: sticky;
+    transition: 1s;
+    &:hover{
+        background-position: bottom;
+    }
+
+    .title{
+        flex-grow: 1;
+        margin-left: 10px;
+        font-size: 0.6em;
+    }
+    h5{
+        padding-bottom: 10px;
+        color: $defaultText;
+        &::after{
+            content: '_______';
+            position: relative;
+            left: -10.5%;
+            width: 100%;
+            @media (min-width:1500px) {
+                left: -6.5%;
+            }
+            @media (max-width:1000px) {
+                left: -20%;
+            }
+        }
+    }
+    .logo{
+        img{
+            width:80px;
+            border-radius: 50%;
+            margin:  -18% 0 0 5%;
+            opacity: 0.8;
+        }
+    }
+    ul{
+        .cart{
+            a{
+                position: absolute;
+                left: -20%;
+                top: 2%;
+                color: $baseBackgroung;
+                cursor: pointer;
+                transition: 0.5s;
+                
+                &:hover{
+                    transform: rotate(40deg);
+                }
+                
+                .cart-notification{
+                    position: absolute;
+                    top:15%;
+                    right: 15%;
+                    color: white;
+                    font-size:13px;
+                }
+            }
+        }
+        .logout{
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 1s;
+            &:hover{
+                transform: rotate(360deg);
+                color: #333;
+            }
+        }
+
+        li{
+            margin: 0px 10px;
+            a{
+                color: white;
+                font-weight: bold;
+                transition: 0.5s;
+                &:hover{
+                    color: $basePurple;
+                    background: transparent;
+                }
+                
+            }
+        }
+    }
+}

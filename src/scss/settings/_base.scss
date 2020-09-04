@@ -1,0 +1,53 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+html{
+    min-height: 100%;
+}
+body{
+    font-family: 'Roboto',Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    min-height: 100%;
+    background: $baseBackgroung;
+}
+
+button{
+    cursor: pointer;
+}
+
+button:disabled{
+    cursor: default;
+}
+
+.error{
+    font-size: 15px;
+    color: $errorColor;
+}
+
+.App{
+  display: flex;
+  flex-direction: column;
+  background: $baseBackgroung;
+  min-height: 100vh;
+}
+
+.active{
+    color: $defaultText;
+    background: linear-gradient(to top right, $baseRose,$baseBackgroung*1.5);
+    border-left: 1px solid $baseGrey*2;
+    border-bottom: 1px solid $baseGrey*2;
+    border-radius: 5px;
+    &:hover{
+        color: white;
+        background: linear-gradient(to top right, $baseRose,$baseBackgroung*1.5);      
+    }
+}
+
+/* loader */
+.loader{
+    position: absolute;
+    left:52%;
+    top:65%;
+    transform: translate(-50%,-40%);
+  }

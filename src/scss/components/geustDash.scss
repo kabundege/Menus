@@ -1,0 +1,120 @@
+@import '../settings/settings';
+
+.parent{
+    width: 95%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 2%;
+    margin-bottom:7% ;
+    
+    @media screen and (min-width:701px) and (max-width:1200px) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media screen and (max-width:700px){
+        grid-template-columns: 1fr 1fr;
+    }
+
+    
+    .avatar{
+        width:100%;
+        height: 300px;
+        background-color: $defaultText;
+        border-radius: 10px;
+        position: relative;
+        margin-top: -2%;
+        left: 4%;
+        transition: 1s;
+        &:hover{
+            left: 0;
+        } 
+        img{
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+    }
+
+    .item{
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        margin:0%;
+        height: fit-content;
+        background: transparent;
+        border: 1px solid white;
+
+        .details{
+            display: flex;
+            flex-direction: row;
+            padding: 10px 0;
+            text-align: center;
+            position: relative;
+            // background: $headerWave;
+            background-size: cover;
+            margin: 3% auto;
+            border-radius: 10px;
+            width: 90%;
+            text-align: justify;
+
+            .desc{
+                padding:  0 0 10px 2px;
+                flex: 0.5;
+                h6{
+                    padding: 0;
+                    margin:0 ;
+                    color: $baseRose;
+                    font-weight: bold;
+                    // font-size: 20px;
+                }
+
+                p{
+                    color: $defaultText;
+                    font-size: 12px;
+                    text-align: left;
+                    word-spacing: 1px;
+                }
+            }
+            .price{
+                color: $defaultText;
+                position: absolute;
+                right: 0.5%;
+                top:15%;
+                display: flex;
+                flex-direction: row;
+                @media(max-width:900px){
+                    position: relative;
+                    display: inline;
+                    strong{
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+                strong{
+                    padding: 0 5px;
+                    margin-right: 15px;
+                    font-size: 20px;
+                    font-weight: bold;
+                    border-radius: 5px;
+                    border: 1px solid $baseRose;
+                    &:last-child{
+                        margin: auto;
+                        border:1px solid $baseBackgroung;
+                        background: $defaultText;
+                        color: $baseRose;
+                        cursor: pointer;
+
+                        &:hover{
+                            background: $baseBackgroung;
+                            border: 1px solid $defaultText;
+                            color: $defaultText;
+                        }
+                    }
+                }
+            }
+            
+            @media(max-width:900px){
+                flex-direction: column;
+            }
+        }
+    }
+}
