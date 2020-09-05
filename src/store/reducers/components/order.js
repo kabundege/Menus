@@ -4,14 +4,14 @@ const initState = {
 }
 
 const orderReducer = (state = initState,action) => {
-    const Action  = action.action
+    const Action  = action.action;
     switch(action.type){
-        case 'GetAllOrder_Error':
+        case 'GetAllOrders_Error':
             return state = {
                 ...state,
                 fetchError: Action,
             }
-        case 'GetAllOrder_Success':
+        case 'GetAllOrders_Success':
             return state = {
                 ...state,
                 fetchError: null,

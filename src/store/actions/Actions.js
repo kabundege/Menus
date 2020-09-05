@@ -17,3 +17,9 @@ export const getAllItems = () => {
 
     return reqHandler('/items','GET',undefined,action);
 };
+
+export const getAllOrders = () => {
+    const action = {successStatus:200,actionName:'GetAllOrders'}
+
+    return reqHandler('/orders','GET',undefined,action);
+};

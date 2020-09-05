@@ -1,0 +1,72 @@
+@import'../settings/settings';
+
+.orders{
+    background: transparent;
+    .order{
+        margin: 1% auto ;
+        padding: 10px 0px;
+        border-bottom: 1px solid $defaultText;
+        border-radius: 5%;
+        div{
+            color: $defaultText;
+            background: white;
+            width: 50%;
+            margin: 2% auto;
+            // padding: 5px;
+            border-radius:5px;
+            @media (max-width:1200px) {
+                width: 70%;
+            }
+            span{
+                padding: 10px 10px;
+                font-size: 16px;
+                font-weight: bold;
+                &:first-child{
+                    background-color: coral;
+                    background-size:contain;
+                    text-align: center;
+                    text-transform: uppercase;
+                    padding: 0 ;
+                    width: 25%;
+                    float: left;
+                    border-top-left-radius: 5px;
+                    border-bottom-left-radius: 5px;
+                }
+                padding: 0 20px;
+                i{
+                    margin-right:10px;
+                    color:coral;
+                    &:last-child{
+                        margin: 0 10px;
+                    }
+                }
+                &:last-child{
+                    color: $baseBackgroung;
+                }
+            }
+        }
+        button{
+            width: 30%;
+            padding: 10px 0;
+            font-size: 20px;
+            margin: 2% 35%;
+            color:$defaultText;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            background: transparent;
+            transition: 1s;
+            border: 0.5px solid $defaultText;
+            &:hover{
+                background: $defaultText;
+                color: $baseBackgroung;
+            }
+            i{
+                margin-left: 5%;
+            }
+            @media (max-width:1000px) {
+                margin: 0 50%;
+            }
+        }
+    }
+}

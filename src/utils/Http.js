@@ -1,4 +1,7 @@
-const { REACT_APP_BASE_LAN_URL,REACT_APP_BASE_WEB_URL } = process.env;
+const { 
+    REACT_APP_BASE_LAN_URL,
+    // REACT_APP_BASE_WEB_URL 
+} = process.env;
 
 export const reqHandler = (url,method,payload,action) => {
     return async (dispatch,getState) => {
@@ -7,7 +10,7 @@ export const reqHandler = (url,method,payload,action) => {
         dispatch({ type : 'Loading',action : {}})
     
         if(payload === undefined){
-            res = fetch(`${REACT_APP_BASE_WEB_URL}${url}`,{ 
+            res = fetch(`${REACT_APP_BASE_LAN_URL}${url}`,{ 
                 method,
                 headers: {
                     Accepted:'appication/json',
@@ -16,7 +19,7 @@ export const reqHandler = (url,method,payload,action) => {
                     },
              })
         }else{
-            res = fetch(`${REACT_APP_BASE_WEB_URL}${url}`,{
+            res = fetch(`${REACT_APP_BASE_LAN_URL}${url}`,{
                 method,
                 headers: {
                     Accepted:'appication/json',

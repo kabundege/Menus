@@ -3,7 +3,8 @@ import { BrowserRouter,Route,Switch } from 'react-router-dom';
 import Header from '../components/helpers/Header';
 import Login from '../components/auth/login';
 import GuestHome from '../components/dashboard/HomeGuest';
-import Cart from '../components/dashboard/cart'
+import Cart from '../components/dashboard/cart';
+import Order from '../components/dashboard/orders';
 
 import dotenv from 'dotenv';
 
@@ -22,6 +23,7 @@ class App extends Component {
             <Route path='/' exact component={Login}/>
             <Route path='/dash' component={GuestHome}/>
             <Route path='/cart' component={Cart}/>
+            <Route path='/orders' component={Order}/>
           </Switch>
         </div>
       </BrowserRouter>

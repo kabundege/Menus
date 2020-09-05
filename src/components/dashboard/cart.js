@@ -52,7 +52,7 @@ const cart = ({ cart,removeItem }) => {
                                         </span>
                                         <span>
                                             <i className="fas fa-wallet"></i>
-                                            {'$'+item.price}
+                                            {item.price+' $'}
                                         </span>
                                     </div>
                                     <div className="cancer">

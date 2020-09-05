@@ -5,6 +5,7 @@ import { NavLink,Link } from 'react-router-dom';
 import '../../scss/components/nav.scss';
 import { tokenAuthAction } from '../../store/actions/Actions';
 import avatar from '../../assets/icon.jpg';
+import Loader from "react-spinners/PulseLoader";
 
 const svgVariants = {
   hidden: { rotate: -180 },
@@ -52,7 +53,9 @@ const Header = ({ logout,authInfo,tokenAuth,cart }) => {
             animate={{ y: -10 }}
             transition={{ delay: 0.2, type: 'spring', stiffness: 120 }}
           >
-            <h5>{ `${origin_type}`.toUpperCase() + ' ' + origin_id }</h5>
+            { origin_type === null ? <Loader color="white"/> :  
+                <h5>{ `${origin_type}`.toUpperCase() + ' ' + origin_id }</h5>
+            }
           </motion.div>
           
           <motion.ul
