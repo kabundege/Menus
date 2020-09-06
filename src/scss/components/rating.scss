@@ -1,0 +1,11 @@
+@import '../settings/settings';
+
+span{
+    i{
+        color: $defaultText;
+        cursor: pointer;
+    }
+    .Rated{
+        color: $baseRose;
+    }
+}

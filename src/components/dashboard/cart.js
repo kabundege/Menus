@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { connect } from 'react-redux';
 import '../../scss/components/cart.scss';
+import { createOrder } from '../../store/actions/Actions';
 
 const nextVariants = {
     hidden: { 
@@ -13,15 +14,19 @@ const nextVariants = {
     },
   }
 
-const cart = ({ cart,removeItem }) => {
+const cart = ({ cart,removeItem,createAnOrder,clearCart }) => {
 
     cart = cart.reverse()
 
     if(cart[0]) sessionStorage.setItem("cart",JSON.stringify(cart))
 
     let totalCost = 0;
-    for(const { price } of cart){
+    const items = [];
+    
+    for(const item of cart){
+        const { price,id } = item;
         totalCost += parseInt(price);
+        items.push(id);
     }
 
     return (
@@ -64,7 +69,10 @@ const cart = ({ cart,removeItem }) => {
                             )
                         )
                     }
-                    <button className="center">
+                    <button className="center" onClick={()=>{
+                        createAnOrder({items});
+                        clearCart();
+                        }}>
                         Place Order 
                         <motion.i 
                             variants={nextVariants} 
@@ -73,7 +81,7 @@ const cart = ({ cart,removeItem }) => {
                         className="fas fa-shopping-cart"></motion.i> 
                     </button>
                 </> : 
-                <h1 className="white-text bold center"> Empty cart 
+                <h1 className="white-text bold center"> New Order
                     <motion.i variants={nextVariants} 
                         initial="hidden"
                         animate="visible"
@@ -86,7 +94,6 @@ const cart = ({ cart,removeItem }) => {
         )
     }
 
-
 const mapStateToProps = (state) =>({
     authInfo : state.auth.userInfo,
     cart: state.items.cart,
@@ -94,5 +101,7 @@ const mapStateToProps = (state) =>({
     
 const mapDiatchToProps = (dispatch) => ({
     removeItem: (id) => dispatch({type:'RemoveCartItem',action:id}),
+    createAnOrder: (payload)=> dispatch(createOrder(payload)),
+    clearCart: ()=> dispatch({type:'ClearCart',action:{}})
 })
 export default connect(mapStateToProps,mapDiatchToProps)(cart);

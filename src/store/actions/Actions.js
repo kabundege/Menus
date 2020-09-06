@@ -23,3 +23,9 @@ export const getAllOrders = () => {
 
     return reqHandler('/orders','GET',undefined,action);
 };
+
+export const createOrder = (payload) => {
+    const action = {successStatus:201,actionName:'CreateOrder'}
+    console.log(payload);
+    return reqHandler('/orders','POST',payload,action);
+}

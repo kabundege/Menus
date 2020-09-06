@@ -35,6 +35,12 @@ const itemReducer = (state = initState,action) => {
                 ...state,
                 cart: newCart,
             }
+        case 'ClearCart':
+            sessionStorage.removeItem("cart")
+            return state = {
+                ...state,
+                cart: []
+            }
         default:
             return state
     }

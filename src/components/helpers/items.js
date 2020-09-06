@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Loader from "react-spinners/RotateLoader";
+import Rating from '../layout/rating';
 
 export default  ({ items,addToCart }) => {
     const nextVariants = {
@@ -26,6 +27,7 @@ export default  ({ items,addToCart }) => {
                 <div className="details">
                     <div className="desc">
                         <h6>{item.name}</h6>
+                        <Rating/>
                         <p>{item.description}</p>
                     </div>
                     <div className="price">
@@ -38,7 +40,7 @@ export default  ({ items,addToCart }) => {
     }else{
         return(
             <div className="loader">
-                    <Loader size={100} color={"rgb(255, 31, 106)"}/> 
+                    <Loader size={100} color={"orange"}/> 
             </div>
         )
     }

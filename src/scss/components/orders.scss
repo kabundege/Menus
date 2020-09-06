@@ -6,24 +6,35 @@
         margin: 1% auto ;
         padding: 10px 0px;
         border-bottom: 1px solid $defaultText;
-        border-radius: 5%;
+        border-radius: 10px;
         div{
             color: $defaultText;
             background: white;
             width: 50%;
             margin: 2% auto;
-            // padding: 5px;
             border-radius:5px;
             @media (max-width:1200px) {
                 width: 70%;
+            }
+            .viewer{
+                float: right;
+                background:$baseBackgroung;
+                padding: 3px 10px;
+                border: 1px solid $defaultText;
+                border-radius: 10px;
+                margin: -0.1% 2% 0 0;
+                cursor: pointer;
+                &:hover{
+                    color: $baseRose;
+                }
+
             }
             span{
                 padding: 10px 10px;
                 font-size: 16px;
                 font-weight: bold;
                 &:first-child{
-                    background-color: coral;
-                    background-size:contain;
+                    background-color: $baseRose/1.2;
                     text-align: center;
                     text-transform: uppercase;
                     padding: 0 ;
@@ -35,7 +46,7 @@
                 padding: 0 20px;
                 i{
                     margin-right:10px;
-                    color:coral;
+                    color:$baseRose;
                     &:last-child{
                         margin: 0 10px;
                     }

@@ -30,19 +30,17 @@ class Orders extends Component{
       }
 
     render(){
-        const { orders } = this.props;
-        const { loading,userInfo } = this.props.authInfo;
+        const { loading,orders } = this.props;
+        const { userInfo } = this.props.authInfo;
 
-        if(orders[0]){
-            console.log(JSON.parse(orders[0].items))
-        }
 
         if(!loading){
         return(
                 <div className="container orders">
                     {   orders[0] ? 
                         orders.map(order=>{
-                            const items = JSON.parse(orders[0].items);
+                            const items = JSON.parse(order.items);
+
                             return (
                                 <div key={order.id} className="container order">
                                     {userInfo.role === 'GUEST' && (
@@ -54,19 +52,20 @@ class Orders extends Component{
                                     }
                                     <div className="bill">
                                         <span>Total</span>
-                                            <span>
-                                                <i className="fas fa-cart-plus"></i>
-                                                {items.length+' item'}
-                                                <i className="fas fa-wallet"></i>
-                                                {order.total_cost+' $'}
-                                            </span>
+                                        <i className="viewer far fa-eye"></i>
+                                        <span>
+                                            <i className="fas fa-cart-plus"></i>
+                                            {items.length+' item'}
+                                            <i className="fas fa-wallet"></i>
+                                            {order.total_cost+' $'}
+                                        </span>
                                     </div>
                                     <div className="status">
                                         <span>status</span>
                                         {
                                             order.status === 'pending'?
-                                            <span className="red-text text-darken-3">Pending</span> :
-                                            <span className="green-text">Delivered</span>
+                                            <span>Delivered <i className="red-text fas fa-ban"></i></span> :
+                                            <span >Delivered <i className="green-text far fa-check-circle"></i></span>
                                         }
                                     </div>
                                     <div className="timestamp">
@@ -79,10 +78,10 @@ class Orders extends Component{
                                             {
                                                 order.status === 'pending' ?
                                                 <>
-                                                    Delivered <i className="red-text fas fa-ban"></i>
+                                                    Deliver <i className="tiny fas fa-shopping-cart"></i>
                                                 </> :
                                                 <>
-                                                    Delivered <i className="green-text far fa-check-circle"></i>
+                                                    Done <i class="fas fa-check"></i>
                                                 </>
                                             }
                                         </button>
@@ -110,7 +109,7 @@ class Orders extends Component{
         } else {
             return(
                 <div className="loader">
-                        <Loader size={100} color={"rgb(255, 31, 106)"}/> 
+                        <Loader size={100} color={"orange"}/> 
                 </div>
             )
         };
