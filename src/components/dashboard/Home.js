@@ -4,6 +4,7 @@ import Items from '../helpers/items';
 import FoodTypes from '../layout/foodtypes';
 import '../../scss/components/geustDash.scss';
 import { getAllItems } from '../../store/actions/Actions';
+import Title from '../helpers/dynamicTitle';
 
 class GuestHome extends Component{
     state={
@@ -12,13 +13,16 @@ class GuestHome extends Component{
         foodType:'',
         cart:[]
     }
+
     componentDidMount(){
         if(localStorage.getItem("token")===null){
             window.location.assign('/')
         }
 
         this.props.getItems();
+        Title();
     }
+
     componentDidUpdate(){
         const { items } = this.props.items;
         const { loading,foodType } = this.state;
@@ -41,6 +45,7 @@ class GuestHome extends Component{
                 })
         }
     }
+
     render(){
         const { items } = this.state;
         const { AddToCart } = this.props;
@@ -64,5 +69,7 @@ const mapDispatchToProps = (dispatch) => ({
         getItems: () => dispatch(getAllItems()),
         AddToCart: (data) => dispatch({ type:'AddToCart',action: data })
 })
+
+
 
 export default connect(mapStateToProps,mapDispatchToProps)(GuestHome);

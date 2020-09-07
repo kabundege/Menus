@@ -31,7 +31,7 @@ const foodtypes = ({items}) => {
                 types[0] && ( 
                     types.map(type =>
                     <Link 
-                        to={'/dash?foodType='+type} 
+                        to={'/Dash?foodType='+type} 
                         key={types.indexOf(type)}
                         id={type}
                         className={

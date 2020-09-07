@@ -52,7 +52,7 @@ class Login extends Component{
         const { loading,authError } = this.props.authInfo;
         const { origin_id } = this.state;
         if(localStorage.getItem('token')!== null) {
-            return <Redirect to="/dash"/>
+            return <Redirect to="/Dash"/>
         }
         return(
             <div className="blob">

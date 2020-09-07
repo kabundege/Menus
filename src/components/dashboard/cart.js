@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { connect } from 'react-redux';
 import '../../scss/components/cart.scss';
 import { createOrder } from '../../store/actions/Actions';
+import Title from '../helpers/dynamicTitle';
 
 const nextVariants = {
     hidden: { 
@@ -14,7 +15,11 @@ const nextVariants = {
     },
   }
 
-const cart = ({ cart,removeItem,createAnOrder,clearCart }) => {
+  
+
+const cart = ({ cart,removeItem,createAnOrder,clearCart,socket }) => {
+    
+    Title();
 
     cart = cart.reverse()
 

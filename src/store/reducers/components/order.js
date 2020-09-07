@@ -1,5 +1,3 @@
-import cart from "../../../components/dashboard/cart";
-
 const initState = {
     orders:[],
     fetchError:null,

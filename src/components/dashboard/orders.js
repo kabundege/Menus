@@ -6,17 +6,19 @@ import moment from 'moment';
 import '../../scss/components/orders.scss';
 import { getAllOrders } from '../../store/actions/Actions';
 import Loader from "react-spinners/RotateLoader";
+import Title from "../helpers/dynamicTitle";
 
 class Orders extends Component{
     state={
         orders:[]
     }
 
-    componentDidMount(){
+    async componentDidMount(){
         if(localStorage.getItem("token")===null){
             window.location.assign("/")
         }
-        this.props.getOrders()
+        this.props.getOrders();
+        Title();
     }
 
     nextVariants = {

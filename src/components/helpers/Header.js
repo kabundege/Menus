@@ -64,7 +64,7 @@ const Header = ({ logout,authInfo,tokenAuth,cart }) => {
           transition={{ delay: 0.2, type: 'spring', stiffness: 120 }}
           >
             <li className="cart">
-              <Link to="/cart">
+              <Link to="/Cart">
                 <i className="fas fa-cart-plus"></i>
               { cart[0]&&(
               <motion.i animate={cartNotification} className="cart-notification fas fa-dot-circle"></motion.i>
@@ -72,10 +72,10 @@ const Header = ({ logout,authInfo,tokenAuth,cart }) => {
               </Link>
               </li>
             <li>
-              <NavLink to='/dash'>Dashboard</NavLink>
+              <NavLink to='/Dash'>Dashboard</NavLink>
             </li>
             <li>
-              <NavLink to='/orders'>Orders</NavLink>
+              <NavLink to='/Orders'>Orders</NavLink>
             </li>
             <li className="logout" onClick={async ()=> {
               await logout()
