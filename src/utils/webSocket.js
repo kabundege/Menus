@@ -2,7 +2,6 @@ import React,{useState} from 'react'
 import { connect } from 'react-redux';
 import openSocket from 'socket.io-client';
 import { motion,AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import ringtone from '../assets/incoming.mp3'
 import '../scss/components/notification.scss';
 

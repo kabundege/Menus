@@ -87,6 +87,7 @@
                         padding: 0;
                     }
                 }
+
                 strong{
                     padding: 0 5px;
                     margin-right: 15px;
@@ -94,18 +95,19 @@
                     font-weight: bold;
                     border-radius: 5px;
                     border: 1px solid $baseRose;
-                    &:last-child{
-                        margin: auto;
-                        border:1px solid $baseBackgroung;
-                        background: $defaultText;
-                        color: $baseRose;
-                        cursor: pointer;
+                }
+                
+                .last{
+                    margin: auto;
+                    border:1px solid $baseBackgroung;
+                    background: $defaultText;
+                    color: $baseRose;
+                    cursor: pointer;
 
-                        &:hover{
-                            background: $baseBackgroung;
-                            border: 1px solid $defaultText;
-                            color: $defaultText;
-                        }
+                    &:hover{
+                        background: $baseBackgroung;
+                        border: 1px solid $defaultText;
+                        color: $defaultText;
                     }
                 }
             }

@@ -34,7 +34,7 @@ button:disabled{
 
 .active{
     color: $defaultText;
-    background: linear-gradient(to top right, $baseRose/1.5,$baseBackgroung);
+    background: linear-gradient(to top right, $baseRose*1.2,$baseBackgroung);
     border-left: 1px solid $baseGrey*2;
     border-bottom: 1px solid $baseGrey*2;
     border-bottom-left-radius: 50%;
@@ -45,7 +45,7 @@ button:disabled{
         border-radius: 0;
         border-top-left-radius: 50%;
         border-bottom-right-radius: 50%;
-        background: linear-gradient(to top right, $baseRose/1.5,$baseBackgroung);
+        background: linear-gradient(to top right, $baseRose/1.2,$baseBackgroung);
     }
 }
 

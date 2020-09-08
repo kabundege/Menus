@@ -31,11 +31,11 @@ export default  ({ items,addToCart,role }) => {
                         <p>{item.description}</p>
                     </div>
                     <div className="price">
-                        <strong>{'$ '+item.price}</strong>
+                        <strong >{'$ '+item.price}</strong>
                         {
-                            role==='GUEST'?
-                            <strong onClick={()=>addToCart(item.id)}><i className="fas fa-cart-plus" ></i></strong>:
-                            <strong></strong>
+                            role==='GUEST'&&
+                            <strong className="last" onClick={()=>addToCart(item.id)}><i className="fas fa-cart-plus" ></i></strong>
+                            
                         }
                     </div>
                 </div>
