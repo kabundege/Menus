@@ -48,12 +48,12 @@ class GuestHome extends Component{
 
     render(){
         const { items } = this.state;
-        const { AddToCart } = this.props;
+        const { AddToCart,authInfo } = this.props;
         return(
             <>
             <FoodTypes />
             <div className="container parent">
-                <Items items={items} addToCart={AddToCart}/>
+                <Items items={items} addToCart={AddToCart} role={authInfo.role}/>
             </div>
             </>
         )
@@ -61,7 +61,7 @@ class GuestHome extends Component{
 }
 
 const mapStateToProps = (state) => ({
-        authInfo: state.auth,
+        authInfo: state.auth.userInfo,
         items:state.items,
     })
 

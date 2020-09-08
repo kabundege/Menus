@@ -34,7 +34,7 @@ export const reqHandler = (url,method,payload,action) => {
             const { successStatus,actionName } = action;
         
             if(data.status !== successStatus){
-                dispatch({ type : `${actionName}_Error`,action : data.error})
+                dispatch({ type : `${actionName}_Error`,action : data.message})
             }else{
                 dispatch({ type :`${actionName}_Success`,action: data.data})
             } 

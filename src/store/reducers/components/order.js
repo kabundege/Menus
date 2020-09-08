@@ -30,7 +30,22 @@ const orderReducer = (state = initState,action) => {
                 orders: Action,
                 loading:false
             }
-
+        case 'AddOrder':
+            return state={
+                ...state,
+                orders:[...state.orders,Action]
+            }
+        case 'UpdateOrder_Error':
+            return state = {
+                ...state,
+                fetchError:Action,
+            }
+        case 'UpdateOrder_Success':
+            const newOrders = state.orders.filter(order=> order.id !== Action.id)
+            return state = {
+                ...state,
+                orders:[...newOrders,Action],
+            }
         default:
             return state
     }

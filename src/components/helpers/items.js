@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Loader from "react-spinners/RotateLoader";
 import Rating from '../layout/rating';
 
-export default  ({ items,addToCart }) => {
+export default  ({ items,addToCart,role }) => {
     const nextVariants = {
         hidden: { 
           x: '100vh' 
@@ -32,7 +32,11 @@ export default  ({ items,addToCart }) => {
                     </div>
                     <div className="price">
                         <strong>{'$ '+item.price}</strong>
-                        <strong onClick={()=>addToCart(item.id)}><i className="fas fa-cart-plus" ></i></strong>
+                        {
+                            role==='GUEST'?
+                            <strong onClick={()=>addToCart(item.id)}><i className="fas fa-cart-plus" ></i></strong>:
+                            <strong></strong>
+                        }
                     </div>
                 </div>
             </motion.div>

@@ -10,7 +10,7 @@ const initState = {
 }
 
 const authReducer = (state = initState,action) => {
-    const Action  = action.action
+    const Action  = action.action;
     switch(action.type){
         case'Loading':
         return state = {

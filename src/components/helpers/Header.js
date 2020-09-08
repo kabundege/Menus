@@ -33,7 +33,8 @@ const Header = ({ logout,authInfo,tokenAuth,cart }) => {
     if(authInfo.origin_type === null){
       tokenAuth(token);
     }
-    const { origin_type,origin_id } = authInfo; 
+    const { origin_type,origin_id,role } = authInfo; 
+    
     return (
       <nav>
           <motion.div className="logo"
@@ -63,14 +64,17 @@ const Header = ({ logout,authInfo,tokenAuth,cart }) => {
           animate={{ y: -10 }}
           transition={{ delay: 0.2, type: 'spring', stiffness: 120 }}
           >
-            <li className="cart">
-              <Link to="/Cart">
-                <i className="fas fa-cart-plus"></i>
-              { cart[0]&&(
-              <motion.i animate={cartNotification} className="cart-notification fas fa-dot-circle"></motion.i>
-              ) }
-              </Link>
-              </li>
+            { 
+              role==='GUEST' && 
+                <li className="cart">
+                  <Link to="/Cart">
+                    <i className="fas fa-cart-plus"></i>
+                  { cart[0]&&(
+                  <motion.i animate={cartNotification} className="cart-notification fas fa-dot-circle"></motion.i>
+                  ) }
+                  </Link>
+                </li>
+            }
             <li>
               <NavLink to='/Dash'>Dashboard</NavLink>
             </li>
@@ -79,7 +83,9 @@ const Header = ({ logout,authInfo,tokenAuth,cart }) => {
             </li>
             <li className="logout" onClick={async ()=> {
               await logout()
-              window.location.assign('/')
+              let link;
+              role === "GUEST" ? link ='/' : link = '/Admin';
+              window.location.assign(link)
             }}>
               Log<span role="img" aria-label="visible">💡</span>ut
             </li>

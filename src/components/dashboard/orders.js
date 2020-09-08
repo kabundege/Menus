@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import moment from 'moment';
 import '../../scss/components/orders.scss';
-import { getAllOrders } from '../../store/actions/Actions';
+import { getAllOrders,updateOrder } from '../../store/actions/Actions';
 import Loader from "react-spinners/RotateLoader";
 import Title from "../helpers/dynamicTitle";
 
@@ -32,7 +32,7 @@ class Orders extends Component{
       }
 
     render(){
-        const { loading,orders } = this.props;
+        const { loading,orders,deliverOder } = this.props;
         const { userInfo } = this.props.authInfo;
 
 
@@ -40,12 +40,13 @@ class Orders extends Component{
         return(
                 <div className="container orders">
                     {   orders[0] ? 
-                        orders.map(order=>{
-                            const items = JSON.parse(order.items);
+                        orders.map((order,index)=>{
+                            // console.log();
+                            const items = Array.isArray(order.items) ?  order.items : JSON.parse(order.items)
 
                             return (
-                                <div key={order.id} className="container order">
-                                    {userInfo.role === 'GUEST' && (
+                                <div key={index} className="container order">
+                                    {userInfo.role !== 'GUEST' && (
                                             <div className="owner">
                                                 <span>owner</span>
                                                 <span>{order.origin_type+' '+order.origin_id}</span>
@@ -75,15 +76,15 @@ class Orders extends Component{
                                         <span>{moment(parseInt(order.timestamp)).calendar()}</span>
                                     </div>
                                      
-                                    {userInfo.role === 'GUEST' && (
+                                    {userInfo.role !== 'GUEST' && (
                                         <button className="center">
                                             {
                                                 order.status === 'pending' ?
-                                                <>
+                                                <p onClick={()=>deliverOder(order.id,{status:"Delivered",items})}>
                                                     Deliver <i className="tiny fas fa-shopping-cart"></i>
-                                                </> :
+                                                </p> :
                                                 <>
-                                                    Done <i class="fas fa-check"></i>
+                                                    Done <i className="fas fa-check"></i>
                                                 </>
                                             }
                                         </button>
@@ -126,6 +127,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     getOrders:()=> dispatch(getAllOrders()),
+    deliverOder: (id,payload)=> dispatch(updateOrder(id,payload))
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(Orders);

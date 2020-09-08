@@ -21,6 +21,7 @@ nav{
     h5{
         padding-bottom: 10px;
         color: $defaultText;
+        font-weight: bold;
         &::after{
             content: '_______';
             position: relative;
@@ -48,7 +49,7 @@ nav{
                 position: absolute;
                 left: -20%;
                 top: 2%;
-                color: $baseBackgroung;
+                // color: $baseBackgroung;
                 cursor: pointer;
                 transition: 0.5s;
                 
@@ -66,24 +67,25 @@ nav{
             }
         }
         .logout{
-            color: white;
+            color: $baseBackgroung;
             font-weight: bold;
             cursor: pointer;
             transition: 1s;
+            font-size: 18px;
             &:hover{
                 transform: rotate(360deg);
-                color: #333;
+                color: $defaultText;
             }
         }
 
         li{
             margin: 0px 10px;
             a{
-                color: white;
+                color: $baseBackgroung;
                 font-weight: bold;
                 transition: 0.5s;
                 &:hover{
-                    color: $basePurple;
+                    color: $defaultText;
                     background: transparent;
                 }
                 

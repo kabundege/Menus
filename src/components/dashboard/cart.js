@@ -31,7 +31,7 @@ const cart = ({ cart,removeItem,createAnOrder,clearCart,socket }) => {
     for(const item of cart){
         const { price,id } = item;
         totalCost += parseInt(price);
-        items.push(id);
+        items.push(parseInt(id));
     }
 
     return (

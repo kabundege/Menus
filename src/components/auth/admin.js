@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { motion } from 'framer-motion';
 import { Redirect } from 'react-router-dom';
 import '../../scss/components/login.scss';
-import avatar from "../../assets/breakfast.svg";
+import avatar from "../../assets/avatar.svg";
 import { authAction } from '../../store/actions/Actions';
 import Loader from "react-spinners/BeatLoader";
 
@@ -15,10 +15,8 @@ class Login extends Component{
     constructor(props){
         super(props);
         this.state = {
-            origin_id:'',
-            origin_type:'Table',
-            username:process.env.REACT_APP_GUEST_USERNAME,
-            password:process.env.REACT_APP_GUEST_PASSWORD,
+            username:'',
+            password:'',
         }
     }
 
@@ -48,9 +46,13 @@ class Login extends Component{
         },
       }
     
+    componentDidMount(){
+        document.title =  'Admin ▪ Login';
+    }
+    
     render(){
         const { loading,authError } = this.props.authInfo;
-        const { origin_id } = this.state;
+        const { username,password } = this.state;
         if(localStorage.getItem('token')!== null) {
             return <Redirect to="/Dash"/>
         }
@@ -60,16 +62,24 @@ class Login extends Component{
                     <img src={avatar} className="avatar" alt="avatar"/>
                     <h1>Sign-in</h1>
                     <form onSubmit={this.handlerSubmit}>
-                        <p>Table Number</p>
+                        <p>Username</p>
                         <input 
-                            type="number" 
-                            id="origin_id" 
-                            value={origin_id}
+                            type="text" 
+                            id="username" 
+                            value={username}
                             onChange={this.handlerChange} 
-                            placeholder="Your Table Number..." 
+                            placeholder="Here..." 
+                            required/>
+                        <p>Password</p>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            value={password}
+                            onChange={this.handlerChange} 
+                            placeholder="Here..." 
                             required/>
                         <p className="center">{authError}</p>
-                         { origin_id !== '' && ( 
+                         { username !== '' && ( 
                                 <motion.button
                                     variants={this.nextVariants} 
                                     initial="hidden"
