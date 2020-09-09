@@ -1,6 +1,5 @@
 import React ,{ Component } from 'react';
 import { connect } from 'react-redux';
-import { motion } from 'framer-motion';
 import { Redirect } from 'react-router-dom';
 import '../../scss/components/login.scss';
 import avatar from "../../assets/avatar.svg";
@@ -32,20 +31,6 @@ class Login extends Component{
         e.preventDefault();
     }
 
-    nextVariants = {
-        hidden: { 
-          x: '-100vw' 
-        },
-        visible: {
-          x: 0,
-          transition: { type: 'spring', stiffness: 80 }
-        },
-        exit: {
-          y: "-100vh",
-          transition: { ease: 'easeInOut',delay:0.5 }
-        },
-      }
-    
     componentDidMount(){
         document.title =  'Admin ▪ Login';
     }
@@ -79,18 +64,12 @@ class Login extends Component{
                             placeholder="Here..." 
                             required/>
                         <p className="center">{authError}</p>
-                         { username !== '' && ( 
-                                <motion.button
-                                    variants={this.nextVariants} 
-                                    initial="hidden"
-                                    animate="visible"
-                                    exit="exit"
-                                >
-                                    {
-                                        !loading ? 'Login' : <Loader color={"rgb(255, 255, 255)"}/>
-                                    }
-                                </motion.button>
-                         )}
+                         
+                        <button>
+                            {
+                                !loading ? 'Login' : <Loader color={"rgb(255, 255, 255)"}/>
+                            }
+                        </button>
                     </form>
                 </div>
             </div>

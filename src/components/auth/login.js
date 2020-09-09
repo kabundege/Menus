@@ -1,6 +1,5 @@
 import React ,{ Component } from 'react';
 import { connect } from 'react-redux';
-import { motion } from 'framer-motion';
 import { Redirect } from 'react-router-dom';
 import '../../scss/components/login.scss';
 import avatar from "../../assets/breakfast.svg";
@@ -34,20 +33,6 @@ class Login extends Component{
         e.preventDefault();
     }
 
-    nextVariants = {
-        hidden: { 
-          x: '-100vw' 
-        },
-        visible: {
-          x: 0,
-          transition: { type: 'spring', stiffness: 80 }
-        },
-        exit: {
-          y: "-100vh",
-          transition: { ease: 'easeInOut',delay:0.5 }
-        },
-      }
-    
     render(){
         const { loading,authError } = this.props.authInfo;
         const { origin_id } = this.state;
@@ -69,18 +54,11 @@ class Login extends Component{
                             placeholder="Your Table Number..." 
                             required/>
                         <p className="center">{authError}</p>
-                         { origin_id !== '' && ( 
-                                <motion.button
-                                    variants={this.nextVariants} 
-                                    initial="hidden"
-                                    animate="visible"
-                                    exit="exit"
-                                >
-                                    {
-                                        !loading ? 'Login' : <Loader color={"rgb(255, 255, 255)"}/>
-                                    }
-                                </motion.button>
-                         )}
+                        <button>
+                            {
+                                !loading ? 'Login' : <Loader color={"rgb(255, 255, 255)"}/>
+                            }
+                        </button>
                     </form>
                 </div>
             </div>

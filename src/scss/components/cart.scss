@@ -108,7 +108,7 @@
         padding: 10px 0;
         font-size: 20px;
         margin: 2% 35%;
-        color:$defaultText;
+        color:$baseBackgroung;
         font-weight: bold;
         border: none;
         border-radius: 5px;
@@ -121,6 +121,7 @@
             background-color: transparent;
             background-position: bottom;
             border-bottom: 0.5px solid $defaultText;
+            color:coral;
         }
         i{
             margin-left: 5%;

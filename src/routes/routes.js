@@ -11,7 +11,7 @@ import Order from '../components/dashboard/orders';
 import Socket from '../utils/webSocket';
 
 class App extends Component {
-  scrollUp = {background:'transparent',border:"1px solid orange",outline:"none"}
+  scrollUp = {background:'transparent',border:"3px solid #f0f0f0",outline:"none"}
   render(){
     return (
       <BrowserRouter>

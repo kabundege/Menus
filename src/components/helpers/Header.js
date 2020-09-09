@@ -50,8 +50,8 @@ const Header = ({ logout,authInfo,tokenAuth,cart }) => {
             ></motion.img>
           </motion.div>
           <motion.div className="title"
-            initial={{ y: -250}}
-            animate={{ y: -10 }}
+            initial={{ x: -250}}
+            animate={{ x: -6,y:-10 }}
             transition={{ delay: 0.2, type: 'spring', stiffness: 120 }}
           >
             { origin_type === null ? <Loader color="white"/> :  

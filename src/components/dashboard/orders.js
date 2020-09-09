@@ -4,20 +4,24 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import moment from 'moment';
 import '../../scss/components/orders.scss';
-import { getAllOrders,updateOrder } from '../../store/actions/Actions';
+import { getAllOrders,updateOrder,getAllItems } from '../../store/actions/Actions';
 import Loader from "react-spinners/RotateLoader";
 import Title from "../helpers/dynamicTitle";
+import Rating from '../layout/rating';
 
 class Orders extends Component{
     state={
-        orders:[]
+        orders:[],
+        viewOrder:false,
+        orderItems:[],
     }
 
-    async componentDidMount(){
+    componentDidMount(){
         if(localStorage.getItem("token")===null){
             window.location.assign("/")
         }
         this.props.getOrders();
+        this.props.getAllItems();
         Title();
     }
 
@@ -32,16 +36,49 @@ class Orders extends Component{
       }
 
     render(){
-        const { loading,orders,deliverOder } = this.props;
+        const { loading,orders,deliverOder,items } = this.props;
         const { userInfo } = this.props.authInfo;
-
+        const { orderItems,viewOrder } = this.state;
 
         if(!loading){
         return(
                 <div className="container orders">
+                    {
+                        viewOrder && (
+                            <div className="overlay container">
+                                <div>
+                                    <span>Items</span>
+                                    <span onClick={()=> this.setState({ viewOrder: false })}><i className="fas fa-times-circle"></i></span>
+                                </div>
+                                <ul>
+                                    {
+                                        items.map(item=>{
+                                            let found = false;
+
+                                            for(const order of orderItems){
+                                                if(item.id === order){
+                                                    found = true;
+                                                }
+                                            }
+
+                                            if(found){
+                                                return (
+                                                    <li key={item.id}>
+                                                        <span><img src={item.photoUrl} alt={item.name+' image'}/></span>
+                                                        <span>{item.name} <Rating/></span>
+                                                    </li> 
+                                                )
+                                            }else{
+                                                return <></>
+                                            }
+                                        })
+                                    }
+                                </ul>
+                            </div>
+                        )
+                    }
                     {   orders[0] ? 
                         orders.map((order,index)=>{
-                            // console.log();
                             const items = Array.isArray(order.items) ?  order.items : JSON.parse(order.items)
 
                             return (
@@ -55,7 +92,12 @@ class Orders extends Component{
                                     }
                                     <div className="bill">
                                         <span>Total</span>
-                                        <i className="viewer far fa-eye"></i>
+                                        <i className="viewer far fa-eye" onClick={()=>{
+                                            this.setState({
+                                                viewOrder: true,
+                                                orderItems: JSON.stringify(items),
+                                            })
+                                        }}></i>
                                         <span>
                                             <i className="fas fa-cart-plus"></i>
                                             {items.length+' item'}
@@ -122,12 +164,14 @@ class Orders extends Component{
 
 const mapStateToProps = (state) => ({
     authInfo: state.auth,
-    orders: state.orders.orders.reverse()
+    orders: state.orders.orders.reverse(),
+    items: state.items.items,
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    getOrders:()=> dispatch(getAllOrders()),
-    deliverOder: (id,payload)=> dispatch(updateOrder(id,payload))
+    getOrders:() => dispatch(getAllOrders()),
+    deliverOder: (id,payload) => dispatch(updateOrder(id,payload)),
+    getAllItems: () => dispatch(getAllItems())
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(Orders);
