@@ -51,10 +51,10 @@ class GuestHome extends Component{
         const { AddToCart,authInfo } = this.props;
         return(
             <>
-            <FoodTypes />
-            <div className="container parent">
-                <Items items={items} addToCart={AddToCart} role={authInfo.role}/>
-            </div>
+                <FoodTypes />
+                <div className="container parent">
+                    <Items items={items} addToCart={AddToCart} role={authInfo.role}/>
+                </div>
             </>
         )
     }
