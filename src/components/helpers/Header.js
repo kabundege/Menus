@@ -65,7 +65,7 @@ const Header = ({ logout,authInfo,tokenAuth,cart }) => {
           transition={{ delay: 0.2, type: 'spring', stiffness: 120 }}
           >
             { 
-              role==='GUEST' && 
+              role==='GUEST' ?
                 <li className="cart">
                   <Link to="/Cart">
                     <i className="fas fa-cart-plus"></i>
@@ -73,10 +73,15 @@ const Header = ({ logout,authInfo,tokenAuth,cart }) => {
                   <motion.i animate={cartNotification} className="cart-notification fas fa-dot-circle"></motion.i>
                   ) }
                   </Link>
+                </li> : 
+                <li>
+                  <NavLink to="/Create">
+                    New Item <i className="tiny fas fa-plus-circle"></i>
+                  </NavLink>
                 </li>
             }
             <li>
-              <NavLink to='/Dash'>Dashboard</NavLink>
+              <NavLink to='/Dash'>{ role === 'GUEST' ? 'Dashboard' : 'Items' }</NavLink>
             </li>
             <li>
               <NavLink to='/Orders'>Orders</NavLink>

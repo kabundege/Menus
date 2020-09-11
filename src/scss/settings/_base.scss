@@ -33,16 +33,19 @@ button:disabled{
 }
 
 .active{
-    color: $defaultText;
+    color: $baseRose;
     background: linear-gradient(to top right, $baseRose,$baseHeader/1.5);
     border-left: 1px solid $baseGrey*2;
     border-bottom: 1px solid $baseGrey*2;
     transition: 0.5s;
+    border-radius: 3px;
+    padding:  0 5px;
+    border: 10px;
+    height: 10px;
+    position: relative;
     &:hover{
-        color: white;
         border-radius: 0;
-        border-top-left-radius: 50%;
-        border-bottom-right-radius: 50%;
+        border-radius: 50%;
         background: linear-gradient(to top right, $baseRose,$baseHeader/2);
     }
 }

@@ -8,6 +8,7 @@ import AdminLogin from '../components/auth/admin';
 import GuestHome from '../components/dashboard/Home';
 import Cart from '../components/dashboard/cart';
 import Order from '../components/dashboard/orders';
+import NewItem from '../components/dashboard/createItem';
 import Socket from '../utils/webSocket';
 
 class App extends Component {
@@ -20,10 +21,11 @@ class App extends Component {
           <Socket/>
           <Switch >
             <Route path='/' exact component={Login}/>
-            <Route path='/Admin' exact component={AdminLogin}/>
+            <Route path='/Admin' component={AdminLogin}/>
             <Route path='/Dash' component={GuestHome}/>
             <Route path='/Cart' component={Cart}/>
             <Route path='/Orders' component={Order}/>
+            <Route path='/Create' component={NewItem}/>
           </Switch>
           <ScrollUpButton style={this.scrollUp} />
         </div>

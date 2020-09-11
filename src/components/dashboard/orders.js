@@ -48,7 +48,7 @@ class Orders extends Component{
                             <div className="overlay container">
                                 <div>
                                     <span>Items</span>
-                                    <span onClick={()=> this.setState({ viewOrder: false })}><i className="fas fa-times-circle"></i></span>
+                                    <span className="red-text darken-2" onClick={()=> this.setState({ viewOrder: false })}><i className="red-text darken-text-5 fas fa-times-circle"></i></span>
                                 </div>
                                 <ul>
                                     {
@@ -56,7 +56,7 @@ class Orders extends Component{
                                             let found = false;
 
                                             for(const order of orderItems){
-                                                if(item.id === order){
+                                                if(item.id === JSON.stringify(order)){
                                                     found = true;
                                                 }
                                             }
@@ -95,7 +95,7 @@ class Orders extends Component{
                                         <i className="viewer far fa-eye" onClick={()=>{
                                             this.setState({
                                                 viewOrder: true,
-                                                orderItems: JSON.stringify(items),
+                                                orderItems: items,
                                             })
                                         }}></i>
                                         <span>
@@ -164,12 +164,12 @@ class Orders extends Component{
 
 const mapStateToProps = (state) => ({
     authInfo: state.auth,
-    orders: state.orders.orders.reverse(),
+    orders: state.orders.orders,
     items: state.items.items,
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    getOrders:() => dispatch(getAllOrders()),
+    getOrders:  () => dispatch(getAllOrders()),
     deliverOder: (id,payload) => dispatch(updateOrder(id,payload)),
     getAllItems: () => dispatch(getAllItems())
 })

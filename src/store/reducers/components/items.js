@@ -10,9 +10,15 @@ const itemReducer = (state = initState,action) => {
         state.cart = JSON.parse(sessionStorage.getItem("cart"));
         state.inSession = true;
     }
+    // console.log(action);
     const Action  = action.action;
     switch(action.type){
         case 'GetAllItems_Error':
+            return state = {
+                ...state,
+                fetchError: Action,
+            }
+        case 'CreateItem_Error':
             return state = {
                 ...state,
                 fetchError: Action,

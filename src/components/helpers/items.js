@@ -44,7 +44,7 @@ export default  ({ items,addToCart,role }) => {
     }else{
         return(
             <div className="loader">
-                    <Loader size={100} color={"#6183aa"}/> 
+                    <Loader size={100} color={"orange"}/> 
             </div>
         )
     }

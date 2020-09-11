@@ -41,6 +41,7 @@ nav{
         }
     }
     .logo{
+        z-index: 1;
         img{
             width:80px;
             border-radius: 50%;
@@ -87,6 +88,7 @@ nav{
             a{
                 color: $baseBackgroung;
                 font-weight: bolder;
+                font-family: cursive;
                 transition: 0.5s;
                 &:hover{
                     color: $baseRose;

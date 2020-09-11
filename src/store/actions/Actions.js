@@ -35,3 +35,9 @@ export const updateOrder = (id,payload) => {
 
     return reqHandler(`/orders/${id}`,'PATCH',payload,action);
 };
+
+export const createItem = (payload) => {
+    const action = {successStatus:201,actionName:'CreateItem'}
+
+    return reqHandler('/items','POST',payload,action);
+};
