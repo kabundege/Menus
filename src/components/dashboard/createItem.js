@@ -16,6 +16,7 @@ class NewItem extends Component{
         description:'',
         status:'active'
     }
+    
     handlerChange = (e) => {
         const { id,value } = e.target;
 
@@ -23,10 +24,13 @@ class NewItem extends Component{
             [id]:value,
         })
     }
+
     handlerSubmit = (e) => {
         e.preventDefault();
         this.props.newItem(this.state)
+        setTimeout(()=> this.Genesis = true,2000)
     }
+
     handlerAvatar = async (e) => {
         const formData = new FormData();
 
@@ -44,9 +48,11 @@ class NewItem extends Component{
         })
 
     }
+
     componentDidMount(){
         document.title = "Item Profile";
     }
+    Genesis = false;
     render(){
         const { price,photoUrl,description,status,name,food_type } = this.state;
         const { fetchError,creationSuccess } = this.props.item;
@@ -91,7 +97,7 @@ class NewItem extends Component{
                     </div>
                     <p id="error">{fetchError}</p>
                     {
-                        !creationSuccess ? 
+                        !creationSuccess&&!this.Genesis ? 
                         <button >
                                 {
                                     !loading ? 'Save' : <Loader color={"rgb(255, 255, 255)"}/> 

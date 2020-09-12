@@ -35,7 +35,7 @@ const Socket = ({ authInfo,AddOrder }) => {
     })
 
     if (showToast&&authInfo.role !== 'GUEST'){
-        setTimeout(()=> setShowToast(false) ,5000)
+        setTimeout(()=> setShowToast(false) ,10000)
         return (
             <AnimatePresence>
                     <audio src={ringtone} autoPlay></audio>
