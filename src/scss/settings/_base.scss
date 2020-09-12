@@ -20,11 +20,6 @@ button:disabled{
     cursor: default;
 }
 
-.error{
-    font-size: 15px;
-    color: $errorColor;
-}
-
 .App{
   display: flex;
   flex-direction: column;

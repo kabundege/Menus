@@ -27,7 +27,9 @@ const cartNotification= {
   }
 }
 
+
 const Header = ({ logout,authInfo,tokenAuth,cart }) => {
+
   const token = localStorage.getItem('token');
   if(token!== null){
     if(authInfo.origin_type === null){
@@ -98,9 +100,13 @@ const Header = ({ logout,authInfo,tokenAuth,cart }) => {
       </nav>
     )
   }else{
-    return(
-      <></>
-    )
+    if(window.location.pathname !== '/'&& window.location.pathname !== '/admin'){
+      return window.location.assign('/')
+    }else{
+      return(
+        <></>
+      )
+    }
   }
   
 }

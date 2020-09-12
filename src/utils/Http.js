@@ -27,6 +27,9 @@ export const reqHandler = (url,method,payload,action) => {
         }
 
         await res.then(res => res.json()).then(data=> {
+            
+            dispatch({ type : 'Stop_Loading',action : {}});
+
             const { successStatus,actionName } = action;
         
             if(data.status !== successStatus){

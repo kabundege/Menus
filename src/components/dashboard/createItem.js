@@ -2,49 +2,68 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../../scss/components/Itemform.scss';
 import { createItem } from '../../store/actions/Actions';
+import defaultAvatar from '../../assets/default.png';
+import Loader from "react-spinners/BeatLoader";
+
+const { REACT_APP_BASE_WEB_URL } = process.env;
 
 class NewItem extends Component{
     state = {
-        newItem:{
-            name:'',
-            food_type:'',
-            price:'',
-            description:'',
-            status:'active'
-        },
-        photoUrl:null,
-        defaultPhoto:"https://lh3.googleusercontent.com/proxy/TWMyjQJgj60ru7APG1jIYiqfZMfOmT7ngHaKfu2P8SOYAp8Bb-U5Voud8oeCAen-3jLP6rtLp37x1XmiPTOEvmH4QYJeg8d7sfddVmfr-GKWTM3ODGY6qBwjzaiMT59Ua3HrKOJQXMm7-jQ99JWgFzo"
+        name:'',
+        food_type:'',
+        price:'',
+        photoUrl:'',
+        description:'',
+        status:'active'
     }
     handlerChange = (e) => {
         const { id,value } = e.target;
-        // console.log(document.getElementsByTagName("form"));
+
         this.setState({
-            newItem: {
-                ...this.state.newItem,
-                [id]:value,
-            }
+            [id]:value,
         })
     }
     handlerSubmit = (e) => {
         e.preventDefault();
-        // this.props.newItem(document.getElementsByTagName("form"))
+        this.props.newItem(this.state)
+    }
+    handlerAvatar = async (e) => {
+        const formData = new FormData();
+
+        formData.append('avatar',e.target.files[0]);
+
+        fetch(`${REACT_APP_BASE_WEB_URL}/imageUpload`,{
+            method:'POST',
+            headers:{ 
+                authorization : localStorage.getItem("token") 
+            },
+            body:formData,
+        }).then(res => res.json()).then(data => {
+            if(data.status === 201)
+            this.setState({ photoUrl: data.data })
+        })
+
+    }
+    componentDidMount(){
+        document.title = "Item Profile";
     }
     render(){
-        const { photoUrl,newItem,defaultPhoto } = this.state;
-        const { price,description,status,name,food_type } = newItem;
+        const { price,photoUrl,description,status,name,food_type } = this.state;
+        const { fetchError,creationSuccess } = this.props.item;
+        const { loading } = this.props.authInfo;
 
         return (
             <div className="container item">
                 <h5 className="center">Item Profile</h5>
                 <form onSubmit={this.handlerSubmit} className="itemProfile" >
                     <div className="container">
-                        <span>Item Image 👉</span>
+                        <span>Item Image</span>
                         <span>
-                        { photoUrl === null ? 
-                            <img src={defaultPhoto} alt="default"/> :
-                            <img name="avatar" src={null} alt="NewImg"/>
+                        { photoUrl === '' ? 
+                            <img src={defaultAvatar} alt="default"/> :
+                            <img src={photoUrl} alt="NewImg"/>
                         }
-                        <input type="file" id="photoUrl" onChange={(e)=> this.setState({ [e.target.id]: e.target.value })}/>
+                        <input type="file" id="photoUrl" onChange={this.handlerAvatar}/>
                         </span>
                     </div>
                     <div className="input">
@@ -66,19 +85,35 @@ class NewItem extends Component{
                     <div className="input status">
                         <label >Status </label>
                         <div>
-                            <span className={ status === 'active' ? "green white-text" : "green-text" } onClick={()=> this.setState({ newItem : {...newItem,status: 'active' }})} >ON</span>
-                            <span className={ status === 'active' ? "red-text" : "red white-text" } onClick={()=> this.setState({ newItem : {...newItem,status: 'dormant' }})} >OFF</span>
+                            <span className={ status === 'active' ? "green white-text" : "green-text" } onClick={()=> this.setState({ status: 'active' })} >ON</span>
+                            <span className={ status === 'active' ? "red-text" : "red white-text" } onClick={()=> this.setState({ status: 'dormant' })} >OFF</span>
                         </div>
                     </div>
-                    <button >Save</button>
+                    <p id="error">{fetchError}</p>
+                    {
+                        !creationSuccess ? 
+                        <button >
+                                {
+                                    !loading ? 'Save' : <Loader color={"rgb(255, 255, 255)"}/> 
+                                }
+                        </button> :
+                        <p className="center">
+                            <i className="success large fas fa-check-circle"></i>
+                        </p>
+                    }
                 </form>
             </div>
         )
     }
 }
 
+const mapStateToProps = (state) => ({
+    authInfo: state.auth,
+    item: state.items,
+})
+
 const mapDispatchToProps = (dispatch) => ({
     newItem: (payload) => dispatch(createItem(payload))
 })
 
-export default connect(undefined,mapDispatchToProps)(NewItem);
+export default connect(mapStateToProps,mapDispatchToProps)(NewItem);

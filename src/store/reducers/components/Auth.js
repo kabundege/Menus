@@ -13,10 +13,15 @@ const authReducer = (state = initState,action) => {
     const Action  = action.action;
     switch(action.type){
         case'Loading':
-        return state = {
-            ...state,
-            loading:true
-        }
+            return state = {
+                ...state,
+                loading:true
+            }
+        case'Stop_Loading':
+            return state = {
+                ...state,
+                loading:false
+            }
         case 'Login_Error':
             return state = {
                 ...state,
