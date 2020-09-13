@@ -21,23 +21,23 @@ nav{
     h5{
         color: $baseBackgroung;
         font-weight: bold;
-        border: 2px solid $baseBackgroung;
+        // border-bottom: 2px solid $baseBackgroung;
         border-left: none;
-        width: 11%;
+        // width: 11%;
         padding: 22px 20px;
         margin-top: -0%;
         position: relative;
-        left: -1.5%;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
+        left: -1%;
+        // border-top-right-radius: 10px;
+        // border-bottom-right-radius: 10px;
         @media (max-width:1600px) and (min-width:1101px) {
-            width: 20%;
-            left: -3%;
+            // width: 20%;
+            // left: -1%;
         }
 
         @media (max-width:1100px) {
-            width: 32%;
-            left: -3%;
+            // width: 32%;
+            // left: -3%;
         }
     }
     .logo{

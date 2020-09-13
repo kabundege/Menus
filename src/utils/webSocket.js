@@ -38,7 +38,7 @@ const Socket = ({ authInfo,AddOrder }) => {
         setTimeout(()=> setShowToast(false) ,10000)
         return (
             <AnimatePresence>
-                    <audio src={ringtone} autoPlay></audio>
+                    <audio src={ringtone} autoPlay loop></audio>
                     <motion.div className="notification"
                         variants={nextVariants} 
                         initial="hidden"
@@ -50,7 +50,7 @@ const Socket = ({ authInfo,AddOrder }) => {
                         </div>
                         <div>
                             <span>{message.origin_type} {message.origin_id}</span>
-                            <span>Placed A {message.total_cost} $ Order</span>
+                            <span>Placed a {message.total_cost} $ Order</span>
                         </div>
                     </motion.div>
             </AnimatePresence>

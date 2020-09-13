@@ -12,6 +12,9 @@
     flex-direction: row;
     height: 55px;
     border: 3px solid $defaultText;
+    @media screen and (max-width:1500px){
+        width: 20%;
+    }
     div{
         &:first-child{
             flex: 0.3;
@@ -32,8 +35,13 @@
             span{
                 background: $baseRose;
                 width: 116.5%;
+                height: 25px;
+                font-size: 15px;
                 border-bottom-right-radius: 5px;
                 color: $baseBackgroung;
+                @media screen and (max-width:1200px) {
+                    font-size: 10px;
+                }
                 &:first-child{
                     background: $baseBackgroung;
                     border-radius: 0;

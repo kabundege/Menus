@@ -41,3 +41,9 @@ export const createItem = (payload) => {
 
     return reqHandler('/items','POST',payload,action);
 };
+
+export const deleteItem = (id) => {
+    const action = {successStatus:200,actionName:'DeleteItem'}
+
+    return reqHandler(`/items/${id}`,'DELETE',undefined,action);
+};

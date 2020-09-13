@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Loader from "react-spinners/RotateLoader";
 import Rating from '../layout/rating';
 
-export default  ({ items,addToCart,role }) => {
+export default  ({ items,addToCart,role,deleteItem }) => {
     const nextVariants = {
         hidden: { 
           x: '100vh' 
@@ -12,7 +12,7 @@ export default  ({ items,addToCart,role }) => {
           x: 0,
           transition: { type: 'spring', stiffness: 80 }
         },
-      }
+      };
       
     if(items[0]){
         return items.map(item=>(
@@ -33,8 +33,9 @@ export default  ({ items,addToCart,role }) => {
                     <div className="price">
                         <strong >{'$ '+item.price}</strong>
                         {
-                            role==='GUEST'&&
-                            <strong className="last" onClick={()=>addToCart(item.id)}><i className="fas fa-cart-plus" ></i></strong>
+                            role==='GUEST' ?
+                            <strong className="last" onClick={()=>addToCart(item.id)}><i className="fas fa-cart-plus" ></i></strong> :
+                            <strong className="last" onClick={()=>deleteItem(item.id)}><i className="tiny fas fa-trash"></i></strong>
                             
                         }
                     </div>
