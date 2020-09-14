@@ -20,13 +20,27 @@ const nextVariants = {
     },
   }
 
-const Socket = ({ authInfo,AddOrder }) => {
-    const { REACT_APP_SOCKET } = process.env;
-    const [ message,setMessage ] = useState()
+const { REACT_APP_SOCKET } = process.env;
+console.log(REACT_APP_SOCKET);
 
-    const [ showToast, setShowToast ] = useState(false)
+const socket = openSocket(REACT_APP_SOCKET);
 
-    const socket = openSocket(REACT_APP_SOCKET);
+
+const Notify = ({ authInfo,AddOrder }) => {
+    
+    const [ message,setMessage ] = useState({ origin_id:12, total_cost:1200, origin_type:'Room'});
+    const [ socketId, setSocketId ] = useState();
+
+    const [ showToast, setShowToast ] = useState(true);
+
+    socket.on('ping',(id)=>{
+
+        if(id !== undefined)
+        setSocketId(id);
+
+        if(authInfo.token !== null && socketId !== undefined)
+        socket.emit('auth',{ socketId: id, authInfo : authInfo.origin_id + ' ' + authInfo.origin_type})
+    })
 
     socket.on('new_order',order =>{
         AddOrder(order);
@@ -46,7 +60,7 @@ const Socket = ({ authInfo,AddOrder }) => {
                         exit="exit"
                     >
                         <div>
-                            <i class="fas fa-utensils"></i>
+                            <i className="fas fa-utensils"></i>
                         </div>
                         <div>
                             <span>{message.origin_type} {message.origin_id}</span>
@@ -68,4 +82,4 @@ const mapDispatchToProps = (dispatch) => ({
     AddOrder: (order) => dispatch({type:'AddOrder',action:order})
 })
 
-export default connect(mapStateToProp,mapDispatchToProps)(Socket);
+export default connect(mapStateToProp,mapDispatchToProps)(Notify);
