@@ -28,10 +28,9 @@ const socket = openSocket(REACT_APP_SOCKET);
 
 const Notify = ({ authInfo,AddOrder }) => {
     
-    const [ message,setMessage ] = useState({ origin_id:12, total_cost:1200, origin_type:'Room'});
+    const [ message,setMessage ] = useState();
     const [ socketId, setSocketId ] = useState();
-
-    const [ showToast, setShowToast ] = useState(true);
+    const [ showToast, setShowToast ] = useState(false);
 
     socket.on('ping',(id)=>{
 
