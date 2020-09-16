@@ -10,7 +10,7 @@ export default  ({ items,addToCart,role,deleteItem }) => {
     const newValue = values.splice(10);
     const newFoodType = newValue.join("");
 
-    if(foodType !== newFoodType){
+    if(foodType !== newFoodType && newFoodType !== ""){
         setFoodType(newFoodType);
         data = items.filter(item => items.filter(item => item.food_type.includes(newFoodType)))
     }else if(foodType){
@@ -31,7 +31,7 @@ export default  ({ items,addToCart,role,deleteItem }) => {
       
     if(data[0]){
         return data.map(item=>(
-            <motion.div key={item.id} className="item"
+            <motion.div key={parseInt(item.id)} className="item"
                 variants={nextVariants} 
                 initial="hidden"
                 animate="visible"
@@ -60,7 +60,7 @@ export default  ({ items,addToCart,role,deleteItem }) => {
     }else{
         return(
             <div className="loader">
-                    <Loader size={100} color={"orange"}/> 
+                    <Loader size={100} color={"pink"}/> 
             </div>
         )
     }
