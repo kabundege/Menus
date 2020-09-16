@@ -4,7 +4,6 @@ const initState = {
     cart:[],
     inSession:false,
     creationSuccess:false,
-    deleteSuccess:false
 }
 
 const itemReducer = (state = initState,action) => {
@@ -35,13 +34,7 @@ const itemReducer = (state = initState,action) => {
         case 'DeleteItem_Success':
             return state = {
                 ...state,
-                deleteSuccess:true,
                 items: state.items.filter(item=> item.id !== Action )
-            }
-        case 'resetDelete':
-            return state = {
-                ...state,
-                deleteSuccess:false
             }
         case 'GetAllItems_Success':
             return state = {

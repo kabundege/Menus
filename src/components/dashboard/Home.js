@@ -25,46 +25,6 @@ class GuestHome extends Component{
 
     componentDidUpdate(){
         Title();
-        const { items,deleteSuccess } = this.props.items;
-        const { loading,foodType,deleted } = this.state;
-
-        if(items[0]){
-            const values =  window.location.search.split("");
-            const newValue = values.splice(10);
-            const newFoodType = newValue.join("");
-
-            if(loading){
-                this.setState({
-                    items,
-                    loading:false,
-                })
-            }
-
-            if(foodType !== newFoodType){
-                this.setState({
-                    items: items.filter(item => item.food_type.includes(newFoodType)),
-                    loading:false,
-                    foodType:newFoodType
-                })
-            }
-
-            if(deleted !== null&&deleteSuccess){
-
-                let newItems;
-                newFoodType === "" ?
-                newItems = items.filter(item => parseInt(item.id) !== deleted):
-                newItems = items.filter(item => item.food_type.includes(newFoodType) && parseInt(item.id) !== deleted);
-
-
-                this.setState({
-                    items:newItems,
-                    deleted:null
-                })
-
-                this.props.resetDelete()
-            }
-
-        }
     }
 
     handlerDelete = (id) =>{
@@ -78,7 +38,7 @@ class GuestHome extends Component{
     }
 
     render(){
-        const { items } = this.state;
+        const { items } = this.props.items;
         const { AddToCart,authInfo } = this.props;
         return(
             <>
@@ -99,8 +59,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
         getItems: () => dispatch(getAllItems()),
         AddToCart: (data) => dispatch({ type:'AddToCart',action: data }),
-        deleteItem: (id) => dispatch(deleteItem(id)),
-        resetDelete:()=>dispatch({type:'resetDelete',action:{}})
+        deleteItem: (id) => dispatch(deleteItem(id))
 })
 
 

@@ -1,9 +1,8 @@
 @import'../settings/settings';
 
 .orders{
-    background: transparent;
     .overlay{
-        background: whitesmoke;
+        background: lightgrey;
         width: 20%;
         position: fixed;
         right: 4%;
@@ -46,11 +45,13 @@
     .order{
         margin: 1% auto ;
         padding: 10px 0px;
-        border-bottom: 1px solid $defaultText;
+        border-bottom: 2px solid $links;
         border-radius: 10px;
+        // background: lightgray;
+        background: linear-gradient(to top right, $baseHeader/2,$baseRose/5,$baseHeader/2);
         div{
             color: $defaultText;
-            background: white;
+            background: $links*2.5;
             width: 50%;
             margin: 2% auto;
             border-radius:5px;
@@ -59,14 +60,12 @@
             }
             .viewer{
                 float: right;
-                background:$baseBackgroung;
                 padding: 3px 10px;
-                border: 1px solid $defaultText;
-                border-radius: 10px;
-                margin: -0.1% 2% 0 0;
+                margin: 0.3% 0% 0 0;
+                color: $baseRose;
                 cursor: pointer;
                 &:hover{
-                    color: $baseRose;
+                    color: $defaultText;
                 }
 
             }
@@ -108,10 +107,10 @@
             border-radius: 5px;
             background: transparent;
             transition: 1s;
-            border: 0.5px solid $defaultText;
+            border: 1px solid $defaultText;
             &:hover{
                 background: $defaultText;
-                color: $baseBackgroung;
+                color: $links;
             }
             i{
                 margin-left: 5%;

@@ -1,9 +1,24 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import { motion } from 'framer-motion';
 import Loader from "react-spinners/RotateLoader";
 import Rating from '../layout/rating';
 
 export default  ({ items,addToCart,role,deleteItem }) => {
+    const [ foodType, setFoodType ] = useState();
+    let data;
+    const values =  window.location.search.split("");
+    const newValue = values.splice(10);
+    const newFoodType = newValue.join("");
+
+    if(foodType !== newFoodType){
+        setFoodType(newFoodType);
+        data = items.filter(item => items.filter(item => item.food_type.includes(newFoodType)))
+    }else if(foodType){
+        data = items.filter(item => item.food_type.includes(foodType))
+    }else{
+        data = items
+    }
+
     const nextVariants = {
         hidden: { 
           x: '100vh' 
@@ -14,8 +29,8 @@ export default  ({ items,addToCart,role,deleteItem }) => {
         },
       };
       
-    if(items[0]){
-        return items.map(item=>(
+    if(data[0]){
+        return data.map(item=>(
             <motion.div key={item.id} className="item"
                 variants={nextVariants} 
                 initial="hidden"

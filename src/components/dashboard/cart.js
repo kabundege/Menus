@@ -39,7 +39,7 @@ const cart = ({ cart,removeItem,createAnOrder,clearCart,socket }) => {
                 {cart[0]?
                 <>
                     <div className="cart-totals center">
-                        <span>Total</span>
+                        <span className="white-text">Total</span>
                         <span>
                             <i className="fas fa-cart-plus"></i>
                             {cart.length+' item'}
@@ -86,12 +86,12 @@ const cart = ({ cart,removeItem,createAnOrder,clearCart,socket }) => {
                         className="fas fa-shopping-cart"></motion.i> 
                     </button>
                 </> : 
-                <h1 className="white-text bold center"> New Order
+                <h1 className="grey-text bold center"> New Order
                     <motion.i variants={nextVariants} 
                         initial="hidden"
                         animate="visible"
                         className=" fas fa-shopping-cart"
-                        style={{fontSize:"40px",marginLeft:"5%",color:"#f3f3f354"}}
+                        style={{fontSize:"40px",marginLeft:"5%",color:"grey"}}
                         >
                     </motion.i> 
                 </h1>}

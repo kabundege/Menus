@@ -1,9 +1,6 @@
 @import'../settings/settings';
 
 .cartItems{
-    border-top: 1px solid white;
-    border-left: 1px solid white;
-    border-right: 1px solid white;
     padding: 10px 10px 0px 10px;
     width: 50%;
     margin-bottom: 10%;
@@ -11,7 +8,7 @@
     
     .cart-totals{
         color: $defaultText;
-        border: 1px solid coral;
+        border: 1px solid $baseRose;
         width: 50%;
         margin: 2% auto;
         border-radius:5px;
@@ -22,8 +19,9 @@
             padding: 10px 10px;
             font-size: 20px;
             font-weight: bold;
+            color: $links;
             &:first-child{
-                background-color: coral;
+                background-color: $baseRose;
                 background-size:contain;
                 padding: 0px 15px;
                 float: left;
@@ -32,23 +30,22 @@
             }
             i{
                 margin: 0 10px;
-                color:coral
+                color:$baseRose
             }
         }
     }
 
     .cartItem{
         display: flex;
-        background: $baseBackgroung*3;
         border: none;
-        background: $headerWave no-repeat;
-        background-color: coral;
+        border: 1px solid $baseRose;
         background-size:cover;
         background-position: right;
         width:70%;
         margin: 10px auto;
         height: 100px;
         border-radius: 10px;
+        box-shadow: 0px 5px 10px 0px rgba(16, 115, 177, 0.479);
         .avatar{
             flex: 0.15;
             padding: 10px 0px;
@@ -67,7 +64,7 @@
             display: flex;
             flex-direction:column;
             width: 100%;
-            border-right: 3px solid $baseBackgroung;
+            border-right: 2px solid rgb(250, 174, 146);
             
             @media (max-width:1000px) {
                 flex: 0.6;
@@ -75,9 +72,8 @@
             span{
                 width: 80%;
                 margin: auto;
-                border: 1px solid $baseBackgroung;
                 font-weight: bold;
-                background: $baseBackgroung;
+                background: $links*2;
                 border-radius: 3px;
                 color: $defaultText;
                 i{ 
@@ -91,14 +87,14 @@
             flex: 0.2;
             text-align: center;
             margin:auto 0;
-            color: white;
             cursor: pointer;
             font-size: 20px;
             i{
                 padding: 10px;
-            }
-            &:hover{
-                color: #333;
+                color: $baseRose;
+                &:hover{
+                    color: #333;
+                }
             }
         }
     }
@@ -108,7 +104,7 @@
         padding: 10px 0;
         font-size: 20px;
         margin: 2% 35%;
-        color:$baseBackgroung;
+        color:$baseRose;
         font-weight: bold;
         border: none;
         border-radius: 5px;
@@ -116,12 +112,11 @@
         background-size: cover;
         background-position: right;
         transition: 1s;
-        background-color: coral;
+        // background-color: $baseRose;
+        border-left:1px solid $links*3;
+        border-bottom:1px solid $links*3;
         &:hover{
-            background-color: transparent;
             background-position: bottom;
-            border-bottom: 0.5px solid $defaultText;
-            color:coral;
         }
         i{
             margin-left: 5%;

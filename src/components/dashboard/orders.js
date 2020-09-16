@@ -80,6 +80,20 @@ class Orders extends Component{
                     {   orders[0] ? 
                         orders.map((order,index)=>{
                             const items = Array.isArray(order.items) ?  order.items : JSON.parse(order.items)
+                           
+                            let type='sec', Duration = moment(order.updatedAt).diff(parseInt(order.timestamp), "seconds")
+                            
+                            if(Duration>59&&Duration<3540){
+                                type = 'min';
+                                Duration = moment(order.updatedAt).diff(parseInt(order.timestamp), "minutes")
+                            }else if(Duration>3540&&Duration<84960){
+                                type='hours';
+                                Duration = moment(order.updatedAt).diff(parseInt(order.timestamp), "hours")
+                            }else if(Duration>84960){
+                                type='days';
+                                Duration = moment(order.updatedAt).diff(parseInt(order.timestamp), "days")
+                            }
+
 
                             return (
                                 <div key={index} className="container order">
@@ -117,6 +131,13 @@ class Orders extends Component{
                                         <span>created</span>
                                         <span>{moment(parseInt(order.timestamp)).calendar()}</span>
                                     </div>
+                                    {
+                                        order.status !== 'pending' && 
+                                        <div className="delivered">
+                                            <span>served</span>
+                                            <span>{Duration+' '+type} later</span>
+                                        </div>
+                                    }
                                      
                                     {userInfo.role !== 'GUEST' && (
                                         <button className="center">

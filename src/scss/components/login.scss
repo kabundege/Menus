@@ -10,14 +10,12 @@
 .loginbox{
     width: 500px;
     padding: 70px 20px;
-    background: rgba(75, 75, 75, 0.1);
-    color: $baseBackgroung*1.5;
     top: 50%;
     left: 50%;
     position: absolute;
     transform: translate(-50%,-50%);
     border-radius: 10px;
-    box-shadow: 0 10px 50px 0px rgba(0, 0, 0, 0.3), 0px 8px 20px 0px rgba(5, 5, 5, 0.35);
+    box-shadow: 0 10px 50px 0px rgba(120, 183, 199, 0.5), 0px 8px 20px 0px rgba(255, 0, 221, 0.2);
     display: grid;
 
     .avatar {
@@ -46,7 +44,7 @@
         border-bottom: 2px solid #fff;
         border-radius: 10px;
         background: rgba(245, 245, 245, 0.5);
-        color: $baseBackgroung;
+        // color: $baseBackgroung;
         outline: none;
         font-size: 18px;
         font-weight: bolder;

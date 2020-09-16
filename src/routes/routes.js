@@ -12,7 +12,7 @@ import NewItem from '../components/dashboard/createItem';
 import Socket from '../utils/webSocket';
 
 class App extends Component {
-  scrollUp = {background:'transparent',border:"3px solid #f0f0f0",outline:"none"}
+  scrollUp = {background:'transparent',border:"3px solid orange",outline:"none"}
   render(){
     return (
       <BrowserRouter>

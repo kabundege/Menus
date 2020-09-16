@@ -12,7 +12,9 @@
             border-radius: 30px;
             color: $defaultText;
             font-weight: bold;
-            background: darken($color: $baseGrey , $amount: 100%);
+            // background: darken($color: $baseGrey , $amount: 100%);
+            background: linear-gradient(to top right, $baseHeader/2,$baseRose/5,$baseHeader/2);
+            
             cursor: pointer;
             &:hover{
                 border: 2px solid $defaultText;
@@ -20,7 +22,11 @@
         }
         .active{
             background:  lighten($color: $baseRose, $amount: 4);
-            border: 2px solid $defaultText;
+            color: $links;
+            font-weight: bolder;
+            &:hover{
+                border: 2px solid $links;
+            }
         }
     }
 }

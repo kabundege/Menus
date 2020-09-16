@@ -1,27 +1,22 @@
 @import '../settings/settings';
 
 .item {
-    padding-bottom: 20px;        
+    padding-bottom: 2%;        
+    margin-bottom: 3%;
     border:1px solid whitesmoke;
     border-radius: 5px;
+    font-family: 'Poiret One', cursive;
     background: linear-gradient(to top right, $baseHeader/2,$baseRose/5,$baseHeader/2);
             
     h5{
         color: $defaultText;
-        padding: 10px;
-        font-family: cursive;
-        font-weight: 400;
         margin-right: 5%;
     }
     form{
         background: $defaultText;
-        font-family: cursive;
-        font-weight: bold;
-        width: 80%;
-        margin: auto;
+        font-weight: bolder;
         padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0px 40px 100px 0px rgba(24, 24, 24, 0.651);
+        box-shadow: 0px 15px 20px 0px rgba(24, 24, 24, 0.651);
         .container{
             display: flex;
             flex-direction: row;
@@ -84,7 +79,6 @@
                     padding: 5px 15px;
                     border: 1px solid lightgray;
                     border-right: 0;
-                    font-family: monospace;
                     border-top-left-radius: 10px;
                     border-bottom-left-radius: 10px;
                     &:last-child{

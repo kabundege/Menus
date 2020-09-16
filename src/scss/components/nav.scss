@@ -9,9 +9,9 @@ nav{
     box-shadow: none;
     position: sticky;
     transition: 1s;
-    &:hover{
-        background-position: bottom;
-    }
+    // &:hover{
+    //     background-position: bottom;
+    // }
 
     .title{
         flex-grow: 1;
@@ -19,26 +19,14 @@ nav{
         font-size: 0.6em;
     }
     h5{
-        color: $baseBackgroung;
+        color: $links;
         font-weight: bold;
-        // border-bottom: 2px solid $baseBackgroung;
+        font-family: 'Nixie One', cursive;
         border-left: none;
-        // width: 11%;
         padding: 22px 20px;
         margin-top: -0%;
         position: relative;
         left: -1%;
-        // border-top-right-radius: 10px;
-        // border-bottom-right-radius: 10px;
-        @media (max-width:1600px) and (min-width:1101px) {
-            // width: 20%;
-            // left: -1%;
-        }
-
-        @media (max-width:1100px) {
-            // width: 32%;
-            // left: -3%;
-        }
     }
     .logo{
         z-index: 1;
@@ -50,6 +38,7 @@ nav{
         }
     }
     ul{
+        font-family: 'Josefin Slab', serif;
         .cart{
             a{
                 position: absolute;
@@ -79,16 +68,15 @@ nav{
             font-size: 18px;
             &:hover{
                 transform: rotate(360deg);
-                color: $baseBackgroung
+                color: $links
             }
         }
 
         li{
             margin: 0px 10px;
             a{
-                color: $baseBackgroung;
+                color: $links;
                 font-weight: bolder;
-                font-family: cursive;
                 transition: 0.5s;
                 &:hover{
                     color: $baseRose;

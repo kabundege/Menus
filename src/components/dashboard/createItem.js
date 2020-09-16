@@ -60,7 +60,7 @@ class NewItem extends Component{
 
         return (
             <div className="container item">
-                <h5 className="center">Item Profile</h5>
+                <h5 className="center">ITEM PROFILE</h5>
                 <form onSubmit={this.handlerSubmit} className="itemProfile" >
                     <div className="container">
                         <span>Item Image</span>

@@ -21,7 +21,6 @@ const nextVariants = {
   }
 
 const { REACT_APP_SOCKET } = process.env;
-console.log(REACT_APP_SOCKET);
 
 const socket = openSocket(REACT_APP_SOCKET);
 
