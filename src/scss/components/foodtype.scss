@@ -4,29 +4,27 @@
     position: relative;
     margin-top: -2%;
     margin-bottom: 5%;
+    overflow-x: scroll;
+    &::-webkit-scrollbar{
+        display: none;
+    }
     .center{
         a{
             padding: 10px;
             margin: 2%;
-            border: 2px solid $baseRose;
             border-radius: 30px;
             color: $defaultText;
             font-weight: bold;
-            // background: darken($color: $baseGrey , $amount: 100%);
-            background: linear-gradient(to top right, $baseHeader/2,$baseRose/5,$baseHeader/2);
-            
+            background: linear-gradient(to top left,rgb(253, 117, 139),rgb(77, 68, 68));
             cursor: pointer;
             &:hover{
-                border: 2px solid $defaultText;
+                opacity: 0.85;
             }
         }
         .active{
             background:  lighten($color: $baseRose, $amount: 4);
-            color: $links;
+            color: $links*1.3;
             font-weight: bolder;
-            &:hover{
-                border: 2px solid $links;
-            }
         }
     }
 }
