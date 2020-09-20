@@ -2,10 +2,12 @@
 
 .cartItems{
     padding: 10px 10px 0px 10px;
-    width: 50%;
+    width: 60%;
     margin-bottom: 10%;
     border-radius: 5px;
-    
+    @media screen and (max-width:1400px){
+        width: 70%;
+    }
     .cart-totals{
         color: $defaultText;
         border: 1px solid $baseRose;
@@ -39,6 +41,7 @@
         display: flex;
         border: none;
         border: 1px solid $baseRose;
+        background: $headerWave no-repeat;
         background-size:cover;
         background-position: right;
         width:70%;

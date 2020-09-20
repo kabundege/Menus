@@ -135,7 +135,7 @@ class Orders extends Component{
                                         order.status !== 'pending' && 
                                         <div className="delivered">
                                             <span>served</span>
-                                            <span>{Duration+' '+type} later</span>
+                                            <span> By {order.server+' '+Duration+' '+type} later</span>
                                         </div>
                                     }
                                      

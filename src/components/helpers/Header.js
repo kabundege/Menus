@@ -52,7 +52,7 @@ const Header = ({ logout,authInfo,tokenAuth,cart }) => {
             ></motion.img>
           </motion.div>
           <motion.div className="title"
-            initial={{ x: -250}}
+            initial={{ y: -250}}
             animate={{ x: -6,y:-10 }}
             transition={{ delay: 0.2, type: 'spring', stiffness: 120 }}
           >
