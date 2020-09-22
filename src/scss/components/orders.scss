@@ -45,17 +45,15 @@
     .order{
         margin: 1% auto ;
         padding: 10px 0px;
-        border-bottom: 2px solid $links;
+        border-bottom: 2px solid rgb(248, 114, 137);
         border-radius: 10px;
-        // background: lightgray;
-        background: linear-gradient(to top right, $baseHeader/2,$baseRose/5,$baseHeader/2);
         div{
             color: $defaultText;
-            background: $links*2.5;
+            background: $links;
             width: 50%;
             margin: 2% auto;
             border-radius:5px;
-            @media (max-width:1400px) {
+            @media (max-width:1500px) {
                 width: 70%;
             }
             .viewer{
@@ -96,27 +94,28 @@
                 }
             }
         }
+
         button{
             width: 30%;
             padding: 10px 0;
             font-size: 20px;
             margin: 2% 35%;
-            color:$defaultText;
+            color:$links;
             font-weight: bold;
-            border: none;
             border-radius: 5px;
             background: transparent;
             transition: 1s;
-            border: 1px solid $defaultText;
+            border: 1px solid $links;
             &:hover{
-                background: $defaultText;
-                color: $links;
+                i{
+                    transform: rotate(10deg);
+                }
             }
             i{
                 margin-left: 5%;
             }
             @media (max-width:1000px) {
-                margin: 0 50%;
+                margin: 0 35%;
             }
         }
     }

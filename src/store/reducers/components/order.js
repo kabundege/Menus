@@ -22,9 +22,14 @@ const orderReducer = (state = initState,action) => {
                 orders: Action
             }
         case 'AddOrder':
+            let foundOrder=false;
+            for(const order of state.orders){
+                if(order.id === Action.id)
+                foundOrder=true
+            }
             return state={
                 ...state,
-                orders:[...state.orders,Action]
+                orders: foundOrder ? state.orders : [Action,...state.orders]
             }
         case 'UpdateOrder_Error':
             return state = {
@@ -32,10 +37,14 @@ const orderReducer = (state = initState,action) => {
                 fetchError:Action,
             }
         case 'UpdateOrder_Success':
-            const newOrders = state.orders.filter(order=> order.id !== Action.id)
+            const newOrders = state.orders.map(order=> {
+                if(order.id === Action.id)
+                    return Action
+                    return order
+            })
             return state = {
                 ...state,
-                orders:[...newOrders,Action],
+                orders:newOrders,
             }
         default:
             return state

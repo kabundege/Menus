@@ -52,7 +52,7 @@ class Orders extends Component{
                                 </div>
                                 <ul>
                                     {
-                                        items.map(item=>{
+                                        items.map((item,index)=>{
                                             let found = false;
 
                                             for(const order of orderItems){
@@ -63,7 +63,7 @@ class Orders extends Component{
 
                                             if(found){
                                                 return (
-                                                    <li key={item.id}>
+                                                    <li key={index}>
                                                         <span><img src={item.photoUrl} alt={item.name+' image'}/></span>
                                                         <span>{item.name} <Rating/></span>
                                                     </li> 
@@ -157,7 +157,7 @@ class Orders extends Component{
                             )}
                         ) : (
                             <div className="container center">
-                                <Link to="/dash" className="white-text bold center">
+                                <Link to="/dash" className="grey-text bold center">
                                     <h3>No orders Yet _ Click here</h3>
                                     <motion.i variants={this.nextVariants} 
                                         initial="hidden"

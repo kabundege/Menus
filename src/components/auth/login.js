@@ -43,7 +43,7 @@ class Login extends Component{
             <div className="blob">
                 <div className="loginbox">
                     <img src={avatar} className="avatar" alt="avatar"/>
-                    <h1>Sign-in</h1>
+                    <h1>Welcome</h1>
                     <form onSubmit={this.handlerSubmit}>
                         <p>Table Number</p>
                         <input 

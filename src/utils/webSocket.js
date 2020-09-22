@@ -41,13 +41,16 @@ const Notify = ({ authInfo,AddOrder }) => {
     })
 
     socket.on('new_order',order =>{
-        AddOrder(order);
-        setMessage(order);
-        setShowToast(true);
+            AddOrder(order);
+            setMessage(order);
+            setShowToast(true);
     })
 
     if (showToast&&authInfo.role !== 'GUEST'){
-        setTimeout(()=> setShowToast(false) ,7000)
+        setTimeout(()=> {
+            setShowToast(false)
+            setMessage();
+        } ,5000)
         return (
             <AnimatePresence>
                     <audio src={ringtone} autoPlay loop></audio>
