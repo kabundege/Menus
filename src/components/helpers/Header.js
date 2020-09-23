@@ -38,7 +38,11 @@ const Header = ({ logout,authInfo,tokenAuth,cart }) => {
     const { origin_type,origin_id,role } = authInfo; 
     
     return (
-      <nav>
+      <>
+        <div className="container ad">
+          Made with <i class=" red-text fas fa-heart"></i> <Link to="//github.com/kabundege">Christophe Kwizera</Link>
+        </div>
+        <nav>
           <motion.div className="logo"
             drag
             dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
@@ -98,6 +102,7 @@ const Header = ({ logout,authInfo,tokenAuth,cart }) => {
             </li>
           </motion.ul>
       </nav>
+      </>
     )
   }else{
     if(window.location.pathname !== '/'&& window.location.pathname !== '/admin'){
