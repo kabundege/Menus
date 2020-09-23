@@ -1,6 +1,15 @@
 @import'../settings/settings';
 
 .orders{
+    .search{
+        input{
+            font-weight: bold;
+            color: rgb(99, 99, 99);
+        }
+        label{
+            margin-left: 98%;
+        }
+    }
     .overlay{
         background: lightgrey;
         width: 20%;
@@ -118,5 +127,6 @@
                 margin: 0 35%;
             }
         }
+
     }
 }

@@ -40,7 +40,7 @@ const Header = ({ logout,authInfo,tokenAuth,cart }) => {
     return (
       <>
         <div className="container ad">
-          Made with <i class=" red-text fas fa-heart"></i> <Link to="//github.com/kabundege">Christophe Kwizera</Link>
+          Made with <i className=" red-text fas fa-heart"></i> <Link target="_blank" to="//github.com/kabundege">Christophe Kwizera</Link>
         </div>
         <nav>
           <motion.div className="logo"

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import moment from 'moment';
 import '../../scss/components/orders.scss';
 import { getAllOrders,updateOrder,getAllItems } from '../../store/actions/Actions';
@@ -14,6 +12,7 @@ class Orders extends Component{
         orders:[],
         viewOrder:false,
         orderItems:[],
+        searchContent:''
     }
 
     componentDidMount(){
@@ -34,16 +33,51 @@ class Orders extends Component{
           transition: { type: 'spring', stiffness: 80 }
         },
       }
+    
+    handlerChange=(e)=>{
+        const { id,value } = e.target;
+        this.setState({
+            [id]:value
+        })
+    }
 
     render(){
         const { loading,orders,deliverOder,items } = this.props;
         const { userInfo } = this.props.authInfo;
-        const { orderItems,viewOrder } = this.state;
+        const { orderItems,viewOrder,searchContent } = this.state;
+
+        let data;
+
+        if(searchContent!==''){
+            let result
+            //by orwner
+            result = orders.filter(order=>`${order.origin_type}+' '+${order.origin_id}`.includes(searchContent))
+            //by status
+            if(!result[0])
+            result = orders.filter(order=> order.status.includes(searchContent))
+
+            data = result
+        }else{
+            data = orders;
+        }
 
         if(!loading){
         return(
                 <div className="container orders">
                     {
+                        // search for an Order by owner and status
+                        userInfo.role !== "GUEST" && <div className="container input-field search">
+                            <input 
+                                type="text" 
+                                placeholder="Find Order..."
+                                id="searchContent" 
+                                value={this.state.searchContent}
+                                onChange={this.handlerChange} />
+                            <label><i className="fas fa-search"></i></label>
+                        </div>
+                    }
+                    {
+                        //View items on a specific order
                         viewOrder && (
                             <div className="overlay container">
                                 <div>
@@ -77,8 +111,8 @@ class Orders extends Component{
                             </div>
                         )
                     }
-                    {   orders[0] ? 
-                        orders.map((order,index)=>{
+                    {   data[0] ? 
+                        data.map((order,index)=>{
                             const items = Array.isArray(order.items) ?  order.items : JSON.parse(order.items)
                            
                             let type='sec', Duration = moment(order.updatedAt).diff(parseInt(order.timestamp), "seconds")
@@ -156,18 +190,7 @@ class Orders extends Component{
                                     </div>
                             )}
                         ) : (
-                            <div className="container center">
-                                <Link to="/dash" className="grey-text bold center">
-                                    <h3>No orders Yet _ Click here</h3>
-                                    <motion.i variants={this.nextVariants} 
-                                        initial="hidden"
-                                        animate="visible"
-                                        className=" fas fa-shopping-cart"
-                                        style={{fontSize:"40px",marginLeft:"5%",color:"#f3f3f354"}}
-                                        >
-                                    </motion.i> 
-                                </Link>
-                            </div>
+                            <h3 className="grey-text bold center">No Orders Found</h3>
                         )
                     }
                 </ div>
