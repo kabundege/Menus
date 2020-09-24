@@ -71,6 +71,12 @@ const Header = ({ logout,authInfo,tokenAuth,cart }) => {
           transition={{ delay: 0.2, type: 'spring', stiffness: 120 }}
           >
             { 
+              role==="Admin" ?
+                <li>
+                  <Link to='/users'>
+                    Add-User <i className="tiny fas fa-plus-circle"></i>
+                  </Link>
+                </li> :
               role==='GUEST' ?
                 <li className="cart">
                   <Link to="/Cart">

@@ -9,6 +9,7 @@ import GuestHome from '../components/dashboard/Home';
 import Cart from '../components/dashboard/cart';
 import Order from '../components/dashboard/orders';
 import NewItem from '../components/dashboard/createItem';
+import Users from '../components/dashboard/Users';
 import Socket from '../utils/webSocket';
 
 class App extends Component {
@@ -26,6 +27,7 @@ class App extends Component {
             <Route path='/Cart' component={Cart}/>
             <Route path='/Orders' component={Order}/>
             <Route path='/Create' component={NewItem}/>
+            <Route path='/users' component={Users}/>
           </Switch>
           <ScrollUpButton style={this.scrollUp} />
         </div>

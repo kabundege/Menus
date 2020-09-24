@@ -47,3 +47,9 @@ export const deleteItem = (id) => {
 
     return reqHandler(`/items/${id}`,'DELETE',undefined,action);
 };
+
+export const CreateUser = (payload) => {
+    const action = {successStatus:201,actionName:'CreateUser'}
+
+    return reqHandler(`/createUser`,'POST',payload,action);
+};
