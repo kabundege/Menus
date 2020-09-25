@@ -26,7 +26,7 @@
   "scripts": {
     "dev": "react-scripts start",
     "start": "node server/server.js",
-    "Heroku:build": "react-scripts build",
+    "heroku-postbuild": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
