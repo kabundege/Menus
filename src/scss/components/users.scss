@@ -8,6 +8,10 @@
         padding: 20px;
         font-family: 'Nixie One', cursive;
 
+        @media screen and(max-width:1000px) {
+            width: 70%;
+        }
+
         h3{
             text-align: center;
             color: $defaultText;

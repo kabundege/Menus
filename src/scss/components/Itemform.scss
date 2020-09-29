@@ -1,16 +1,21 @@
 @import '../settings/settings';
 
-.item {
+.profiler {
     padding-bottom: 2%;        
     margin-bottom: 3%;
     border:1px solid whitesmoke;
     border-radius: 5px;
+    width: 70%;
+    margin: 0 auto 3% auto;
     font-family: 'Poiret One', cursive;
     background: linear-gradient(to top right, $baseHeader/2,$baseRose/5,$baseHeader/2);
             
     h5{
         color: $defaultText;
         margin-right: 5%;
+    }
+    .active{
+        background: none;
     }
     form{
         background: $defaultText;

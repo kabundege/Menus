@@ -12,7 +12,7 @@ export default  ({ items,addToCart,role,deleteItem }) => {
 
     if(foodType !== newFoodType && newFoodType !== ""){
         setFoodType(newFoodType);
-        data = items.filter(item => items.filter(item => item.food_type.includes(newFoodType)))
+        data = items.filter(item => item.food_type.includes(newFoodType))
     }else if(foodType){
         data = items.filter(item => item.food_type.includes(foodType))
     }else{

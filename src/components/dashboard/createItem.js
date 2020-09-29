@@ -59,8 +59,9 @@ class NewItem extends Component{
         const { loading } = this.props.authInfo;
 
         return (
-            <div className="container item">
+            <div className="profiler">
                 <h5 className="center">ITEM PROFILE</h5>
+                <div>
                 <form onSubmit={this.handlerSubmit} className="itemProfile" >
                     <div className="container">
                         <span>Item Image</span>
@@ -107,7 +108,8 @@ class NewItem extends Component{
                             <i className="success large fas fa-check-circle"></i>
                         </p>
                     }
-                </form>
+                </form>   
+                </div>
             </div>
         )
     }

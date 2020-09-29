@@ -173,7 +173,7 @@ class Orders extends Component{
                                         </div>
                                     }
                                      
-                                    {userInfo.role !== 'GUEST' && (
+                                    {userInfo.role !== 'GUEST' && userInfo.role !== 'COOK' && (
                                         <button className="center">
                                             {
                                                 order.status === 'pending' ?
