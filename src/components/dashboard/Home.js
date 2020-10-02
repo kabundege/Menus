@@ -2,7 +2,7 @@ import React,{ Component } from 'react';
 import { connect } from 'react-redux';
 import Items from '../helpers/items';
 import FoodTypes from '../layout/foodtypes';
-import '../../scss/components/geustDash.scss';
+import '../../scss/components/dashboards/items.scss';
 import { getAllItems,deleteItem } from '../../store/actions/Actions';
 import Title from '../helpers/dynamicTitle';
 
@@ -18,7 +18,7 @@ class GuestHome extends Component{
     componentDidMount(){
         if(localStorage.getItem("token")===null){
             window.location.assign('/')
-        }
+        } 
 
         this.props.getItems();
     }
@@ -43,9 +43,7 @@ class GuestHome extends Component{
         return(
             <>
                 <FoodTypes />
-                <div className="container parent">
-                    <Items items={items} addToCart={AddToCart} role={authInfo.role} deleteItem={this.handlerDelete}/>
-                </div>
+                <Items items={items} addToCart={AddToCart} role={authInfo.role} deleteItem={this.handlerDelete}/>
             </>
         )
     }

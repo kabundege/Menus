@@ -1,5 +1,5 @@
 import React from 'react';
-import'../../scss/components/foodtype.scss';
+import'../../scss/components/helpers/foodtype.scss';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 

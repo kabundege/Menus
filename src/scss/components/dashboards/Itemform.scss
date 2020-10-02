@@ -1,4 +1,4 @@
-@import '../settings/settings';
+@import '../../settings/settings';
 
 .profiler {
     padding-bottom: 2%;        
@@ -8,11 +8,17 @@
     width: 70%;
     margin: 0 auto 3% auto;
     font-family: 'Poiret One', cursive;
-    background: linear-gradient(to top right, $baseHeader/2,$baseRose/5,$baseHeader/2);
+    background: $links*2;
+
+    @media screen and (max-width:700px){
+        width:95%;
+        margin-top: -10%;
+    }
             
     h5{
-        color: $defaultText;
+        color: $baseRose;
         margin-right: 5%;
+        font-weight: bolder;
     }
     .active{
         background: none;
@@ -21,7 +27,6 @@
         background: $defaultText;
         font-weight: bolder;
         padding: 20px;
-        box-shadow: 0px 15px 20px 0px rgba(24, 24, 24, 0.651);
         .container{
             display: flex;
             flex-direction: row;
@@ -54,7 +59,7 @@
         }
 
         .input{
-            width: 70%;
+            width: 80%;
             margin: auto;
             display: flex;
             flex-direction: column;
@@ -93,7 +98,9 @@
                         border-top-right-radius: 10px;
                         border-bottom-right-radius: 10px;
                     }
-                    // font-weight: lighter;
+                    @media screen and (max-width:700px){
+                        padding:2px 8px
+                    }
                 }
             }
         }
@@ -121,6 +128,12 @@
             background: linear-gradient(to top right, $baseRose,$baseHeader/1.5);
             &:hover{
                 background: linear-gradient(to bottom left, $baseRose,$baseHeader/1.5);
+            }
+            @media screen and(max-width:700px){
+                width: 25%;
+                left:40%;
+                margin-top: 2%;
+                padding: 8px 0;
             }
         }
     }

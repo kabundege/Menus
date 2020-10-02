@@ -48,7 +48,7 @@ const authReducer = (state = initState,action) => {
             }
         case 'Logout':
             localStorage.removeItem("token")
-            sessionStorage.removeItem("cart")
+            sessionStorage.removeItem("table")
             return state = {
                 userInfo:{
                     role:null,

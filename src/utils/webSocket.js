@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import openSocket from 'socket.io-client';
 import { motion,AnimatePresence } from 'framer-motion';
 import ringtone from '../assets/incoming.mp3'
-import '../scss/components/notification.scss';
+import '../scss/components/helpers/notification.scss';
 
 const nextVariants = {
     hidden: { 

@@ -1,13 +1,24 @@
-@import'../settings/settings';
+@import '../../settings/settings';
 
 .orders{
     .search{
+        position: relative;
+        @media screen and (max-width:700px) {
+            margin-top: -10%;   
+        }
+        .active{
+            background: none;
+        }
         input{
             font-weight: bold;
             color: rgb(99, 99, 99);
         }
-        label{
-            margin-left: 98%;
+        i{
+            position: absolute;
+            top: 35%;
+            right: 2%;
+            color: $links*3;
+            font-size: small;
         }
     }
     .overlay{
@@ -17,6 +28,7 @@
         right: 4%;
         text-align: center;
         border-radius: 5px;
+        
         div{
             display: flex;
             padding: 5px 0px;
@@ -52,18 +64,20 @@
         }
     }
     .order{
-        margin: 1% auto ;
-        padding: 10px 0px;
-        border-bottom: 2px solid rgb(248, 114, 137);
-        border-radius: 10px;
+        padding-top: 10px;
+        margin: 2% auto;
+        border-bottom: 1px solid $links;
+        border-radius: 5%;
+        @media screen and (max-width:700px){
+            width:100%
+        }
+
         div{
             color: $defaultText;
             background: $links;
-            width: 50%;
             margin: 2% auto;
-            border-radius:5px;
             @media (max-width:1500px) {
-                width: 70%;
+                width: 100%;
             }
             .viewer{
                 float: right;
@@ -77,29 +91,38 @@
 
             }
             span{
-                padding: 10px 10px;
                 font-size: 16px;
-                font-weight: bold;
+                font-weight: bold;        
                 &:first-child{
-                    background-color: $baseRose/1.2;
+                    background-color: $baseRose;
                     text-align: center;
                     text-transform: uppercase;
                     padding: 0 ;
                     width: 25%;
                     float: left;
-                    border-top-left-radius: 5px;
-                    border-bottom-left-radius: 5px;
+                    // border-top-left-radius: 5px;
+                    // border-bottom-left-radius: 5px;               
+                    @media (max-width:700px) {
+                        width: 30%;
+                    }
+                    @media (max-width:340px) {
+                        width: 40%;
+                    }
                 }
                 padding: 0 20px;
                 i{
-                    margin-right:10px;
+                    padding:  0 5px;
                     color:$baseRose;
-                    &:last-child{
-                        margin: 0 10px;
-                    }
                 }
                 &:last-child{
                     color: $baseBackgroung;
+                    @media (max-width:700px) {
+                        padding: 5px;
+                    }
+                    @media (max-width:340px) {
+                        padding: 5px;
+                        font-size: 13px;
+                    }
                 }
             }
         }
@@ -124,7 +147,37 @@
                 margin-left: 5%;
             }
             @media (max-width:1000px) {
-                margin: 0 35%;
+                margin: 0 32%;
+                width: 40%;
+            }
+        }
+
+        section{
+            text-align: center;
+            width: 50%;
+            margin: auto;
+            display: flex;
+            span,a{
+                background: url('../../../assets/newBlob.svg') no-repeat;
+                background-size: cover;
+                background-position:left;
+                border: 1px solid $baseRose;
+                color: $defaultText;
+                flex: 0.5;
+                padding: 5px;
+                margin: 1%;
+                border-radius: 5px;
+                transition: 1s;
+                cursor: pointer;
+                &:hover{
+                    i {color: $links}
+                    background-position: top;
+                }
+                
+            }
+            @media screen and(max-width:700px){
+                width: 70%;
+                span,a{ margin: 0 10% }
             }
         }
 

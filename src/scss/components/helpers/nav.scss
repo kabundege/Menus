@@ -1,0 +1,99 @@
+@import '../../settings/settings';
+
+nav{
+    display: flex;
+    padding: 70px 20px;
+    background: url('../../../assets/wave.svg') no-repeat;
+    background-size: cover;
+    height: 40vh;
+    box-shadow: none;
+    transition: 1s;
+    
+    @media screen and (max-width:1000px){
+        height: 40vh;
+    }
+
+    .title{
+        flex-grow: 1;
+        margin-left: 10px;
+        font-size: 0.6em;
+        position: relative;
+        @media screen and (max-width:700px){
+            left: -8%;
+            top: -5%;
+        }
+    }
+
+    h5{
+        color: $links;
+        font-weight: bold;
+        font-family: 'Nixie One', cursive;
+        border-left: none;
+        padding: 22px 20px;
+        margin-top: -0%;
+        position: relative;
+        left: -1%;
+        @media screen and (max-width:700px){
+            color: $defaultText;
+        }
+
+    }
+
+    .logo{
+        z-index: 1;
+        position: relative;
+        img{
+            width:80px;
+            border-radius: 50%;
+            margin:  -18% 0 0 5%;
+            opacity: 0.8;
+        }
+        @media screen and (max-width:700px){
+            left: -5%;
+        }
+    }
+    ul{
+        font-family: 'Josefin Slab', serif;
+        z-index:1;
+        @media screen and (max-width:700px){
+            background: $links*1.5;
+            position: fixed;
+            left: 0;
+            top: 7%;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            box-shadow: 0px 50px 100px 0 grey;
+        }
+
+        li{
+            margin:0 5px;
+            a{
+                font-weight: bolder;
+                transition: 0.5s;
+                &:hover{
+                    color: $baseRose;
+                    background: transparent;
+                }
+            }
+            @media screen and (max-width:700px){
+                background: none;
+                a { font-size: 20px }
+            }
+        }
+        
+        .logout{
+            color: $baseRose*1.2;
+            font-weight: bold;
+            transition: 1s;
+            cursor: pointer;
+
+            &:hover{
+                transform: rotate(360deg);
+                color: $links;
+            }
+        }
+    }
+}

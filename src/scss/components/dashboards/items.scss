@@ -1,18 +1,17 @@
-@import '../settings/settings';
+@import '../../settings/settings';
 
 .parent{
     width: 95%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 2%;
-    
     @media screen and (min-width:701px) and (max-width:1200px) {
         grid-template-columns: 1fr 1fr 1fr;
     }
     @media screen and (max-width:700px){
         grid-template-columns: 1fr 1fr;
+        width: 100%;
     }
-
     
     .avatar{
         width:100%;
@@ -23,6 +22,7 @@
         margin-top: -2%;
         left: 4%;
         transition: 1s;
+
         &:hover{
             left: 0;
         } 
@@ -30,6 +30,13 @@
             width: 100%;
             height: 100%;
             border-radius: 10px;
+        }
+        
+        @media screen and (max-width:700px){
+            height: 150px;
+            left: 0;
+            border-radius: 0;
+
         }
     }
 
@@ -40,13 +47,13 @@
         margin:0%;
         height: fit-content;
         box-shadow: 0px 10px 30px 0px rgb(105, 105, 105);
+        background: $links;
 
         .details{
             display: flex;
             flex-direction: row;
             padding: 10px 0;
             text-align: center;
-            position: relative;
             margin: 3% auto;
             border-radius: 10px;
             width: 90%;
@@ -54,7 +61,7 @@
 
             .desc{
                 padding:  0 0 10px 2px;
-                flex: 0.5;
+                flex: 0.7;
                 h6{
                     padding: 0;
                     margin:0 ;
@@ -70,42 +77,57 @@
                     word-spacing: 1px;
                 }
             }
-            .price{
-                color: $defaultText;
-                position: absolute;
-                right: 0.5%;
-                top:15%;
+            .ops{
+                flex: 0.5;
                 display: flex;
-                flex-direction: row;
-                @media(max-width:900px){
-                    position: relative;
-                    display: inline;
+                flex-flow: column;
+                position: relative;
+                .price{
+                    color: $defaultText;
+                    display: flex;
+                    flex-direction: row;
+                    @media(max-width:900px){
+                        position: relative;
+                        display: inline;
+                        strong{
+                            margin-right: 3%;
+                            padding: 0;
+                        }
+                    }
+
                     strong{
-                        margin: 0;
-                        padding: 0;
+                        padding: 0 5px;
+                        margin: 0 auto;
+                        font-size: 20px;
+                        font-weight: bold;
+                        border-radius: 5px;
+                        border: 1px solid $baseRose;
+                        @media(max-width:700px){
+                            margin-right: 5%;
+                            padding: 5px 8px;
+                        }
+                    }
+                    
+                    .last{
+                        background: $defaultText;
+                        border: none;
+                        color: $baseRose;
+                        cursor: pointer;
+
+                        &:hover{
+                            color: $links;
+                        }
+                        
                     }
                 }
-
-                strong{
+                .count{
+                    background: rgba(255, 255, 255, 0.2);
                     padding: 0 5px;
-                    margin-right: 15px;
-                    font-size: 20px;
-                    font-weight: bold;
-                    border-radius: 5px;
-                    border: 1px solid $baseRose;
-                }
-                
-                .last{
-                    margin: auto;
-                    border:1px solid $baseBackgroung;
-                    background: $defaultText;
-                    color: $baseRose;
-                    cursor: pointer;
-
-                    &:hover{
-                        background: $baseBackgroung;
-                        border: 1px solid $defaultText;
-                        color: $links;
+                    border-radius: 10px;
+                    width: 90%;
+                    
+                    input[type]{
+                        color: $defaultText;
                     }
                 }
             }

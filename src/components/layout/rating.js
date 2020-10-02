@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../scss/components/rating.scss';
+import '../../scss/components/helpers/rating.scss';
 
 export default () => {
     let ratedStars = Math.floor(Math.random()*(5-2)+2);

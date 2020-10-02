@@ -1,7 +1,7 @@
 import React ,{ Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import '../../scss/components/login.scss';
+import '../../scss/components/auth/login.scss';
 import avatar from "../../assets/avatar.svg";
 import { authAction } from '../../store/actions/Actions';
 import Loader from "react-spinners/BeatLoader";
@@ -11,12 +11,9 @@ import dotenv from 'dotenv';
 dotenv.config()
 
 class Login extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            username:'',
-            password:'',
-        }
+    state = {
+        username:'',
+        password:'',
     }
 
     handlerChange = (e) => {
@@ -32,7 +29,7 @@ class Login extends Component{
     }
 
     componentDidMount(){
-        document.title =  'Admin ▪ Login';
+        document.title =  'PasaDa ▪ Login';
     }
     
     render(){
@@ -47,27 +44,30 @@ class Login extends Component{
                     <img src={avatar} className="avatar" alt="avatar"/>
                     <h1>Welcome</h1>
                     <form onSubmit={this.handlerSubmit}>
-                        <p>Username</p>
-                        <input 
-                            type="text" 
-                            id="username" 
-                            value={username}
-                            onChange={this.handlerChange} 
-                            placeholder="Here..." 
-                            required/>
-                        <p>Password</p>
-                        <input 
-                            type="password" 
-                            id="password" 
-                            value={password}
-                            onChange={this.handlerChange} 
-                            placeholder="Here..." 
-                            required/>
+                        <section>
+                            <span role="img" aria-label="visible">🙍</span>
+                            <input 
+                                type="text" 
+                                id="username" 
+                                value={username}
+                                onChange={this.handlerChange} 
+                                placeholder="username" 
+                                required/>
+                        </section>
+                        <section>
+                            <span role="img" aria-label="visible">🔐</span>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                value={password}
+                                onChange={this.handlerChange} 
+                                placeholder="Password" 
+                                required/>
+                        </section>
                         <p className="center">{authError}</p>
-                         
                         <button>
                             {
-                                !loading ? 'Login' : <Loader color={"rgb(255, 255, 255)"}/>
+                                !loading ? '↪' : <Loader color={"rgb(255, 255, 255)"}/>
                             }
                         </button>
                     </form>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import '../../scss/components/Itemform.scss';
+import '../../scss/components/dashboards/Itemform.scss';
 import { createItem } from '../../store/actions/Actions';
 import defaultAvatar from '../../assets/default.png';
 import Loader from "react-spinners/BeatLoader";

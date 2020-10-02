@@ -1,7 +1,7 @@
 import {motion} from 'framer-motion';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import '../../scss/components/users.scss';
+import '../../scss/components/dashboards/users.scss';
 import Loader from "react-spinners/BeatLoader";
 import { CreateUser } from '../../store/actions/Actions';
 
@@ -18,7 +18,7 @@ class Users extends Component {
     
     componentDidUpdate(){
         const { role } =this.props.authInfo.userInfo;
-        if(role !== 'Admin' && role !== null)
+        if(role !== 'ADMIN' && role !== null)
         window.location.assign('/Dash')
     }
 
@@ -44,16 +44,29 @@ class Users extends Component {
                     <select id="role" className="browser-default" onChange={this.handlerChange} value={role}>
                         <option value={role} disabled>{role}</option>
                         <option value="COOK">COOK</option>
-                        <option value="MANAGER">MANAGER</option>
-                        <option value="Admin">ADMIN</option>
+                        <option value="BAR">BAR</option>
+                        <option value="WAITER">WAITER</option>
+                        <option value="ADMIN">ADMIN</option>
                     </select>
-                    <div className="input-field">
-                        <label htmlFor="username">Username</label>
-                        <input type="text" value={username} id="username" onChange={this.handlerChange}/>
+                    <div>
+                        <span role="img" aria-label="visible">🙍</span>
+                        <input 
+                            type="text" 
+                            id="username" 
+                            value={username}
+                            onChange={this.handlerChange} 
+                            placeholder="username" 
+                            required/>
                     </div>
-                    <div className="input-field">
-                        <label htmlFor="password">Password</label>
-                        <input type="text" value={password} id="password" onChange={this.handlerChange}/>
+                    <div>
+                        <span role="img" aria-label="visible">🔐</span>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            value={password}
+                            onChange={this.handlerChange} 
+                            placeholder="Password" 
+                            required/>
                     </div>
                     <p className="error">{authError}</p>
                     {role !== 'Assign Role' &&

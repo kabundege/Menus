@@ -18,6 +18,12 @@ export const getAllItems = () => {
     return reqHandler('/items','GET',undefined,action);
 };
 
+export const getOneOrder = (id) => {
+    const action = {successStatus:200,actionName:'GetOneOrder'}
+
+    return reqHandler(`/orders/${id}`,'GET',undefined,action);
+};
+
 export const getAllOrders = () => {
     const action = {successStatus:200,actionName:'GetAllOrders'}
 
@@ -52,4 +58,10 @@ export const CreateUser = (payload) => {
     const action = {successStatus:201,actionName:'CreateUser'}
 
     return reqHandler(`/createUser`,'POST',payload,action);
+};
+
+export const deleteOrder = (id) => {
+    const action = {successStatus:200,actionName:'DeleteOrder'};
+
+    return reqHandler(`/orders/${id}`,'DELETE',undefined,action);
 };

@@ -1,4 +1,4 @@
-@import'../../scss/settings/settings';
+@import '../../settings/settings';
 
 .types{
     position: relative;
@@ -8,6 +8,10 @@
     &::-webkit-scrollbar{
         display: none;
     }
+    
+    @media screen and(max-width:700px) {
+        margin-top: -15%;
+    }
     .center{
         a{
             padding: 10px;
@@ -15,7 +19,7 @@
             border-radius: 30px;
             color: $defaultText;
             font-weight: bold;
-            background: linear-gradient(to top left,rgb(253, 117, 139),rgb(77, 68, 68));
+            background: linear-gradient(to top left,$baseRose,rgb(77, 68, 68));
             cursor: pointer;
             &:hover{
                 opacity: 0.85;

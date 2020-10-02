@@ -16,10 +16,20 @@ const orderReducer = (state = initState,action) => {
                 ...state,
                 fetchError: [...state.orders,Action]
             }
+        case 'GetOneOrder_Success':
+            return state = {
+                fetchError: null,
+                orders: Action
+            }
         case 'GetAllOrders_Success':
             return state = {
                 fetchError: null,
                 orders: Action
+            }
+        case 'DeleteOrder_Success':
+            return state = {
+                fetchError:null,
+                orders: state.orders.filter(order => parseInt(order.id) !== parseInt(Action))
             }
         case 'AddOrder':
             let foundOrder=false;
@@ -37,14 +47,9 @@ const orderReducer = (state = initState,action) => {
                 fetchError:Action,
             }
         case 'UpdateOrder_Success':
-            const newOrders = state.orders.map(order=> {
-                if(order.id === Action.id)
-                    return Action
-                    return order
-            })
             return state = {
                 ...state,
-                orders:newOrders,
+                orders:Action,
             }
         default:
             return state
