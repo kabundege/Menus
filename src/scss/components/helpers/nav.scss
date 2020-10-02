@@ -74,7 +74,7 @@ nav{
                 font-weight: bolder;
                 transition: 0.5s;
                 &:hover{
-                    color: $baseRose;
+                    color: $links;
                     background: transparent;
                 }
             }
@@ -85,11 +85,13 @@ nav{
         }
         
         .logout{
-            color: $baseRose*1.2;
+            color: $links;
             font-weight: bold;
             transition: 1s;
             cursor: pointer;
-
+            @media screen and (max-width:700px){
+                color: $baseRose*1.2;
+            }
             &:hover{
                 transform: rotate(360deg);
                 color: $links;

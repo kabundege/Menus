@@ -48,7 +48,7 @@ class Users extends Component {
                         <option value="WAITER">WAITER</option>
                         <option value="ADMIN">ADMIN</option>
                     </select>
-                    <div>
+                    <div className="input-field">
                         <span role="img" aria-label="visible">🙍</span>
                         <input 
                             type="text" 
@@ -58,7 +58,7 @@ class Users extends Component {
                             placeholder="username" 
                             required/>
                     </div>
-                    <div>
+                    <div className="input-field">
                         <span role="img" aria-label="visible">🔐</span>
                         <input 
                             type="password" 
@@ -78,7 +78,7 @@ class Users extends Component {
                             <button disabled={ password === ''||username==='' ? true : false } >
                                 { !loading ? !userCreated ? 'Create' : 'Done!' : <Loader/>}
                             </button>
-                        </motion.div>
+                        </motion.div> 
                     }
                 </form>
             </div>

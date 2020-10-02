@@ -28,7 +28,7 @@ button:disabled{
 }
 
 .active{
-    color: $baseRose;
+    color: $links;
     background: linear-gradient(to top right, $baseRose,$baseHeader/1.5);
     border-left: 1px solid $baseGrey*2;
     border-bottom: 1px solid $baseGrey*2;
@@ -38,11 +38,6 @@ button:disabled{
     border: 10px;
     height: 10px;
     position: relative;
-    &:hover{
-        border-radius: 0;
-        border-radius: 50%;
-        background: linear-gradient(to top right, $baseRose,$baseHeader/2);
-    }
     @media screen and (max-width:700px){
         background: rgba(255, 255, 255, 0.5);
         height: initial;

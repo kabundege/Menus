@@ -26,24 +26,30 @@ const socket = openSocket(REACT_APP_SOCKET);
 
 
 const Notify = ({ authInfo,AddOrder }) => {
-    
     const [ message,setMessage ] = useState();
     const [ socketId, setSocketId ] = useState();
     const [ showToast, setShowToast ] = useState(false);
 
     socket.on('ping',(id)=>{
-
         if(id !== undefined)
         setSocketId(id);
 
         if(authInfo.token !== null && socketId !== undefined)
-        socket.emit('auth',{ socketId: id, authInfo : authInfo.origin_id + ' ' + authInfo.origin_type})
+        socket.emit('auth',{ socketId: id, authInfo })
     })
 
     socket.on('new_order',order =>{
             AddOrder(order);
-            setMessage(order);
+            setMessage(order.owner);
             setShowToast(true);
+    })
+
+    socket.on('updated_order',order=>{
+        if(parseInt(order.creator_id) === parseInt(authInfo.id)){
+            AddOrder(order);
+            setMessage(`Pick up ${order.owner}`);
+            setShowToast(true);
+        }
     })
 
     if (showToast&&authInfo.role !== 'GUEST'){
@@ -64,8 +70,7 @@ const Notify = ({ authInfo,AddOrder }) => {
                             <i className="fas fa-utensils"></i>
                         </div>
                         <div>
-                            <span>{message.origin_type} {message.origin_id}</span>
-                            <span>Placed a {message.total_cost} $ Order</span>
+                            <span> { message }</span>
                         </div>
                     </motion.div>
             </AnimatePresence>

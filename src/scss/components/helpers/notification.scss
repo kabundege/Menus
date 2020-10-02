@@ -15,6 +15,11 @@
     @media screen and (max-width:1500px){
         width: 20%;
     }
+    @media screen and(max-width:700px) {
+        width:60%;
+        left: 30%;
+        top: 20%;
+    }
     div{
         &:first-child{
             flex: 0.3;
@@ -28,26 +33,18 @@
             border-bottom-left-radius: 5px;
         }
         &:last-child{
-            flex: 0.6;
+            flex: 0.7;
             display: grid;
             text-align: center;
             font-weight: bolder;
+            font-size: 20px;
             span{
-                background: $baseRose;
-                width: 116.5%;
-                height: 25px;
-                font-size: 15px;
-                border-bottom-right-radius: 5px;
-                color: $baseBackgroung;
-                @media screen and (max-width:1200px) {
-                    font-size: 10px;
-                }
-                &:first-child{
                     background: $baseBackgroung;
-                    border-radius: 0;
+                    border-left: 3px solid white;
                     border-top-right-radius: 5px;
-                    color: $baseRose;
-                }
+                    border-bottom-right-radius: 5px;
+                    color: $links;
+                    padding-top: 10px;
             }
         }
     }
