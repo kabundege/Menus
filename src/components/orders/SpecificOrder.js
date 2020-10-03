@@ -24,10 +24,10 @@ class Order extends Component {
     handlerSubmit = e => {
         e.preventDefault();
         const { 
-            itemCount,item,prep_Status,status,owner
+            itemCount,item,prep_Status,status,owner,processor
         } = this.state.order
         this.props.update({
-            itemCount,item,prep_Status,status,owner
+            itemCount,item,prep_Status,status,owner,processor
         })
     }
 
@@ -59,6 +59,10 @@ class Order extends Component {
                         <section>
                             <span>Total Cost</span>  
                             <span>{parseInt(order.itemCount) * parseInt(order.price)}</span>
+                        </section>
+                        <section>
+                            <span>Processor</span>
+                            <span>{order.processor}</span>
                         </section>
                         <section>
                             <span>Item</span>

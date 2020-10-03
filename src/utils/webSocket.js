@@ -39,15 +39,19 @@ const Notify = ({ authInfo,AddOrder }) => {
     })
 
     socket.on('new_order',order =>{
-            AddOrder(order);
-            setMessage(order.owner);
-            setShowToast(true);
+        if(authInfo.role !== "WAITER" && authInfo.role !== "ADMIN"){
+            if(order.processor === authInfo.role){
+                AddOrder(order);
+                setMessage(order.owner);
+                setShowToast(true);
+            }
+        }
     })
 
     socket.on('updated_order',order=>{
-        if(parseInt(order.creator_id) === parseInt(authInfo.id)){
+        if(order.creator_id === authInfo.id){
             AddOrder(order);
-            setMessage(`Pick up ${order.owner}`);
+            setMessage('Pick up');
             setShowToast(true);
         }
     })
@@ -60,19 +64,21 @@ const Notify = ({ authInfo,AddOrder }) => {
         return (
             <AnimatePresence>
                     <audio src={ringtone} autoPlay loop></audio>
-                    <motion.div className="notification"
-                        variants={nextVariants} 
-                        initial="hidden"
-                        animate="visible"
-                        exit="exit"
-                    >
-                        <div>
-                            <i className="fas fa-utensils"></i>
-                        </div>
-                        <div>
-                            <span> { message }</span>
-                        </div>
-                    </motion.div>
+                    <section className="cover">
+                        <motion.div className="notification"
+                            variants={nextVariants} 
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                        >
+                            <div>
+                                <i className="fas fa-utensils"></i>
+                            </div>
+                            <div>
+                                <span> { message }</span>
+                            </div>
+                        </motion.div>
+                    </section>
             </AnimatePresence>
         ) 
     }else{

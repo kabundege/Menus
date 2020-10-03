@@ -7,6 +7,7 @@ const Order = ({ item,closeModel,newOrder }) => {
     const [ itemCount, setCount ] = useState();
     const [ owner, setOwner ] = useState();
     const [ done, setDone ] = useState(false);
+    const [ processor, setProcessor ] = useState('Proccesor')
     
     const handlerSubmit = e => {
         e.preventDefault();
@@ -14,6 +15,7 @@ const Order = ({ item,closeModel,newOrder }) => {
             item:item.id,
             itemCount,
             owner: 'Table ' + owner,
+            processor
         }
         newOrder(payload)
         setDone(true)
@@ -23,12 +25,17 @@ const Order = ({ item,closeModel,newOrder }) => {
         <div className="newOrder">
             <span onClick={()=> closeModel(false)}>x</span>
             <form onSubmit={handlerSubmit}>
-                <span className="avatar">
+                <span >
                     <img src={item.photoUrl} alt={item.name}/>
                 </span>
                 <span>
                     <section>
                         <p>Total Cost : { itemCount !== undefined ? itemCount*parseInt(item.price) : 0}</p>
+                        <select className="browser-default" onChange={(e)=> setProcessor(e.target.value)} value={processor}>
+                            <option value={processor} disabled>{processor}</option>
+                            <option value="BAR">BAR</option>
+                            <option value="COOK">COOK</option>
+                        </select>
                         <input 
                             type="number" 
                             min='0'
