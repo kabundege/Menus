@@ -1,0 +1,39 @@
+@import '../../settings/settings';
+
+.stock{
+    background: lightgrey;
+    display: flex;
+    flex-flow:row;
+    ul  {
+        flex:0.2;
+        margin: 0 1%;
+        li{
+            padding:10px;
+            margin:2% 0;
+            cursor: pointer;
+            background:white;
+            a{ 
+                color:$links;
+                font-weight:bold;
+                &:hover{
+                    color:$baseRose;
+                }
+             }
+        }
+        .active{
+            background:none;
+            color:$baseRose;
+            font-weight:bolder;
+            &:hover{
+                color:Links
+            }
+        }
+    }
+    section {
+        flex:0.8;
+        text-align:center;
+        color:$defaultText;
+        background: white;
+        border-radius:2px;
+    }
+}

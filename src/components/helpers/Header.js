@@ -72,14 +72,14 @@ const Header = ({ logout,authInfo,tokenAuth }) => {
             { 
                 role==="ADMIN" ?
                 <>
-                  <li> 
-                    <NavLink to='/stock'>
-                      Stock
+                  <li>
+                    <NavLink to='/Dash'>
+                      Display
                     </NavLink>
                   </li>
                   <li> 
-                    <NavLink to='/addStock'>
-                      Add-Stock
+                    <NavLink to='/stock'>
+                      Stock
                     </NavLink>
                   </li>
                   <li> 
@@ -90,11 +90,18 @@ const Header = ({ logout,authInfo,tokenAuth }) => {
                 </>:
                 <>
                   { role === "BAR" || role === "COOK" ?
+                    <>
                       <li> 
-                        <NavLink to="/Create">
+                        <NavLink to="/item/create">
                           New-Item
                         </NavLink> 
-                      </li> : null
+                      </li> 
+                      <li> 
+                        <NavLink to='/stock'>
+                          Stock
+                        </NavLink>
+                      </li> 
+                    </>: null
                     }
                   <li>
                     <NavLink to='/Dash'>{ role === 'WAITER' ? 'Dashboard' : 'Items' }</NavLink>

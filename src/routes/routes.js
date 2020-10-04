@@ -6,6 +6,7 @@ import Socket from '../utils/webSocket';
 import Login from '../components/auth/admin';
 import Header from '../components/helpers/Header';
 import Users from '../components/dashboard/Users';
+import Stock from '../components/dashboard/stock';
 import Orders from '../components/orders/AllOrders';
 import GuestHome from '../components/dashboard/Home';
 import Order from '../components/orders/SpecificOrder';
@@ -24,8 +25,10 @@ class App extends Component {
             <Route path='/Dash' component={GuestHome}/>
             <Route path='/Orders' component={Orders}/>
             <Route path='/Order/:id' component={Order}/>
-            <Route path='/Create' component={NewItem}/>
+            <Route path='/item/create' component={NewItem}/>
             <Route path='/users' component={Users}/>
+            <Route path='/stock/:type' component={Stock}/>
+            <Route path='/stock' component={Stock}/>
           </Switch>
           <ScrollUpButton style={this.scrollUp} />
         </div>

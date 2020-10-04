@@ -65,3 +65,9 @@ export const deleteOrder = (id) => {
 
     return reqHandler(`/orders/${id}`,'DELETE',undefined,action);
 };
+
+export const AllProducts = (id) => {
+    const action = {successStatus:200,actionName:'GetAllProducts'};
+
+    return reqHandler(`/products`,'GET',undefined,action);
+};

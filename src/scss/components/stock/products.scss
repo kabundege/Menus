@@ -1,0 +1,81 @@
+@import '../../settings/settings';
+
+.products{
+    display: flex;
+    flex-flow: column;
+    section{
+        flex:0.1;
+        margin:1% auto;
+        margin-right: 44.5%;
+        span{
+            background: linear-gradient(to right, $links*2, $baseRose);
+            border:2px solid $links*2;
+            padding:5px 10px;
+            margin:0 5%;
+            border-radius:50px;
+            cursor: pointer;
+            font-weight:bold;
+            color:$defaultText;
+            &:hover{
+                background: linear-gradient(to left, $links*2, $baseRose);
+            }
+        }
+    }
+
+    .parent{
+        flex:0.9;
+        padding: 1%;
+        width:100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 10px;
+
+        @media screen and (max-width:1200px) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        @media screen and (max-width:700px){
+            grid-template-columns: 1fr 1fr;
+            width: 100%;
+        }
+        .product{
+            background:lightgrey;
+            padding:0;
+            text-align:center;
+            box-shadow:0px 5px 10px 0px $links;
+            p{
+                display:flex;
+                &:first-child{
+                    background:$links*2;
+                    border-top-left-radius:3px;
+                    border-top-right-radius:3px;
+                    strong{
+                        margin:auto;
+                        font-size:20px;
+                        text-transform:uppercase;
+                    }
+                }
+                
+                &:last-child  {
+                    margin:2% 0;
+                    span,a{
+                        flex:0.5;
+                        color:$links;
+                        i{ color: $links }
+
+                        &:hover{
+                            color: $baseRose;
+                            i{ color: $baseRose }
+                        }
+                    }
+                }
+                span{
+                    flex:0.5;
+                    padding:2px;
+                    &:first-child {
+                        background:$baseRose;
+                    }
+                }
+            }
+        }
+    }
+}
