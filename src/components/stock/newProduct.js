@@ -8,13 +8,14 @@ const NewProduct = ({ stock,createProd,authInfo }) => {
     const [ payload, setPayload ] = useState({
         name:'',
         avatar:'',
+        price:'',
         type:'Type',
         quantity:'',
     });
 
     const [ Done, setDone ] = useState(false);
 
-    const { name,avatar,type,quantity } = payload;
+    const { name,avatar,type,quantity,price } = payload;
     const { userInfo,loading } = authInfo;
 
     const handlerChange = e => {
@@ -57,6 +58,16 @@ const NewProduct = ({ stock,createProd,authInfo }) => {
                         required/>
                 </div>
                 <div className="input-field">
+                    <span role="img" aria-label="visible">💰</span>
+                    <input 
+                        type="text" 
+                        id="price" 
+                        value={price}
+                        onChange={handlerChange} 
+                        placeholder="Product's worth" 
+                        required/>
+                </div>
+                <div className="input-field">
                     <span role="img" aria-label="visible">✨</span>
                     <input 
                         type="number" 
@@ -73,7 +84,7 @@ const NewProduct = ({ stock,createProd,authInfo }) => {
                     disabled={ name === "" || type === "Type" || quantity === '' || avatar === '' ? true : false }
                 >
                     {
-                        !loading ? Done ? 'Done !': 'Update' : <Loader color={"rgb(255, 255, 255)"}/>
+                        !loading ? Done ? 'Done !': 'Create' : <Loader color={"rgb(255, 255, 255)"}/>
                     } 
                 </button> : <p>Not Allowed To Create</p> }
             </form>

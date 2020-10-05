@@ -4,6 +4,7 @@ import Links from '../stock/links';
 import Products from '../stock/products';
 import Create from '../stock/newProduct';
 import Profile from '../stock/profile';
+import Transactions from '../stock/transactions';
 
 class stock extends Component {
     componentDidMount(){
@@ -18,10 +19,10 @@ class stock extends Component {
             <div className="container stock">
                 <Links/>
                 <section>
-                        {!type || type === 'view' ? <Products/> : null}
-                        {type === "create" && <Create/>}
-                        {type === "product" && <Profile/>}
-                        {type==="transactions"&& <p>transactions</p>}
+                    { !type || type === 'view' ? <Products/> : null }
+                    { type === "create" && <Create/> }
+                    { type === "product" && <Profile/> }
+                    { type === "transactions" && <Transactions/> }
                 </section>
             </div>
         )

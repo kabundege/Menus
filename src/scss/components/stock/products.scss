@@ -90,6 +90,10 @@
                     &:first-child {
                         background:$baseRose;
                     }
+                    &:last-child  {
+                        font-weight:bold;
+                        color:$links;
+                    }
                 }
             }
         }

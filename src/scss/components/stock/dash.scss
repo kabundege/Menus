@@ -7,6 +7,7 @@
     flex-flow:row;
     @media screen and(max-width:700px){
         flex-flow:column;
+        margin-top:-10%;
     }
     ul  {
         flex:0.2;

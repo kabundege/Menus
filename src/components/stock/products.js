@@ -8,6 +8,7 @@ import { AllProducts,deleteProduct } from '../../store/actions/Actions';
 const Products = ({ products,getProducts,authInfo,deleteProd }) => {
     const { role } = authInfo;
     const [ ProdType,setProdType ] = useState();
+
     useEffect((get = getProducts)=>{ get() },[])
 
     let data;
@@ -20,6 +21,7 @@ const Products = ({ products,getProducts,authInfo,deleteProd }) => {
         <div className="products">
             <section>
                 <span onClick={()=> setProdType('goods')}>Goods</span>
+                <span onClick={()=> setProdType('')}>All</span>
                 <span onClick={()=> setProdType('utilities')}>Utilities</span>
             </section>
             <div className="parent">
@@ -36,6 +38,10 @@ const Products = ({ products,getProducts,authInfo,deleteProd }) => {
                             <p>
                                 <span>Quantity</span>
                                 <span>{prod.quantity}</span>
+                            </p>
+                            <p>
+                                <span>Worth</span>
+                                <span>{prod.price} <strong style={{color:"orange",fontWeight:"bold"}}>Rwf</strong></span>
                             </p>
                             <p>
                                 <span>Delivery</span>

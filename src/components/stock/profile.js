@@ -17,6 +17,7 @@ const Profile = ({ stock,getProd,updateProd,authInfo }) => {
         name:'',
         quantity:'',
         avatar:'',
+        price:'',
         type:''
     });
     const [ id,setId ] = useState();
@@ -24,7 +25,7 @@ const Profile = ({ stock,getProd,updateProd,authInfo }) => {
     const [ Done, setDone ] = useState(false);
     const { loading,userInfo }  = authInfo;
     
-    const { name,avatar,type,quantity } = payload;
+    const { name,avatar,type,quantity,price } = payload;
 
     const newId = urlHandler(location)
 
@@ -81,6 +82,16 @@ const Profile = ({ stock,getProd,updateProd,authInfo }) => {
                         value={name}
                         onChange={handlerChange} 
                         placeholder="Product's Name" 
+                        required/>
+                </div>
+                <div className="input-field">
+                    <span role="img" aria-label="visible">💰</span>
+                    <input 
+                        type="text" 
+                        id="price" 
+                        value={price}
+                        onChange={handlerChange} 
+                        placeholder="Product's worth" 
                         required/>
                 </div>
                 <div className="input-field">
