@@ -22,7 +22,7 @@
             @media screen and(max-width:700px){
                 text-align:center;
                 flex:0.25;
-                span{ display:none }
+                span{ display:none; }
             }
             a{ 
                 display:flex;
@@ -33,7 +33,10 @@
                     flex:0.9;
                     text-align:left;
                 }
-                i{ flex:0.1 }
+                i{ 
+                    flex:0.1;
+                    margin: auto;
+                 }
                 &:hover{
                     color:$baseRose;
                 }

@@ -72,8 +72,26 @@ export const AllProducts = () => {
     return reqHandler(`/products`,'GET',undefined,action);
 };
 
+export const OneProduct = (id) => {
+    const action = {successStatus:200,actionName:'GetOneProduct'};
+
+    return reqHandler(`/products/${id}`,'GET',undefined,action);
+};
+
 export const createProduct = (payload) => {
     const action = {successStatus:200,actionName:'createProduct'};
 
     return reqHandler(`/products`,'POST',payload,action);
+};
+
+export const updateProduct = (id,payload) => {
+    const action = {successStatus:200,actionName:'UpdateProduct'};
+
+    return reqHandler(`/products/${id}`,'PATCH',payload,action);
+};
+
+export const deleteProduct = (id) => {
+    const action = {successStatus:200,actionName:'DeleteProduct'};
+
+    return reqHandler(`/products/${id}`,'DELETE',undefined,action);
 };

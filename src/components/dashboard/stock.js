@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import '../../scss/components/stock/dash.scss';
 import Links from '../stock/links';
 import Products from '../stock/products';
 import Create from '../stock/newProduct';
+import Profile from '../stock/profile';
 
 class stock extends Component {
     componentDidMount(){
@@ -20,15 +20,12 @@ class stock extends Component {
                 <section>
                         {!type || type === 'view' ? <Products/> : null}
                         {type === "create" && <Create/>}
-                        {type === "product" && <p>Updating</p>}
+                        {type === "product" && <Profile/>}
+                        {type==="transactions"&& <p>transactions</p>}
                 </section>
             </div>
         )
     }
 }
 
-const mapStateToProps = (state,oldProps) => ({
-        authInfo : state.auth,
-    })
-
-export default connect(mapStateToProps)(stock)
+export default stock;

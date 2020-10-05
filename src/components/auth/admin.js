@@ -1,10 +1,10 @@
 import React ,{ Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import Loader from "react-spinners/BeatLoader";
 import '../../scss/components/auth/login.scss';
 import avatar from "../../assets/avatar.svg";
 import { authAction } from '../../store/actions/Actions';
-import Loader from "react-spinners/BeatLoader";
 
 import dotenv from 'dotenv';
 

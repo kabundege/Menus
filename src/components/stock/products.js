@@ -3,11 +3,12 @@ import { connect } from 'react-redux' ;
 import { Link } from 'react-router-dom';
 import Loader from "react-spinners/RotateLoader";
 import '../../scss/components/stock/products.scss';
-import { AllProducts } from '../../store/actions/Actions';
+import { AllProducts,deleteProduct } from '../../store/actions/Actions';
 
-const Products = ({ products,getProducts }) => {
+const Products = ({ products,getProducts,authInfo,deleteProd }) => {
+    const { role } = authInfo;
     const [ ProdType,setProdType ] = useState();
-    useEffect(()=>{ getProducts() },[])
+    useEffect((get = getProducts)=>{ get() },[])
 
     let data;
 
@@ -41,10 +42,13 @@ const Products = ({ products,getProducts }) => {
                                 <span>{prod.avatar}</span>
                             </p>
                             <p>
-                                <Link to={'stock/product/'+prod.id}><i className="far fa-eye"></i></Link>
-                                <span 
-                                    onClick={()=>window.confirm("Are You Sure")}
-                                ><i className="fas fa-trash"></i></span>
+                                <Link to={'/stock/product/'+prod.id}><i className="far fa-eye"></i></Link>
+
+                                {   role === "ADMIN" &&
+                                    <span 
+                                    onClick={()=>window.confirm("Are You Sure")&&deleteProd(prod.id)}
+                                    ><i className="fas fa-trash"></i></span>
+                                }
                             </p>
                         </div>
                     )): <div className="loader"><Loader size={100} color={"orange"}/></div>
@@ -55,11 +59,13 @@ const Products = ({ products,getProducts }) => {
 }
 
 const mapStateToProps = state => ({
-    products: state.stock.products
+    products: state.stock.products,
+    authInfo: state.auth.userInfo,
 })
 
 const mapDipatchToProps = dispatch => ({
-    getProducts:() => dispatch(AllProducts())
+    getProducts:() => dispatch(AllProducts()),
+    deleteProd:(id) => dispatch(deleteProduct(id))
 })
 
 export default connect(mapStateToProps,mapDipatchToProps)(Products);
