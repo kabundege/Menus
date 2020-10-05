@@ -9,7 +9,7 @@ export default () =>
             </NavLink>
         </li>
         <li>
-            <NavLink to="/stock/product/:id">
+            <NavLink to="/stock/product">
                 <span>Update Product</span> <i className="fas fa-marker"></i>
                 </NavLink> 
         </li>

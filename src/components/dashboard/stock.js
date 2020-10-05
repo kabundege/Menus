@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import '../../scss/components/stock/dash.scss';
 import Links from '../stock/links';
 import Products from '../stock/products';
+import Create from '../stock/newProduct';
 
 class stock extends Component {
     componentDidMount(){
@@ -18,7 +19,7 @@ class stock extends Component {
                 <Links/>
                 <section>
                         {!type || type === 'view' ? <Products/> : null}
-                        {type === "create" && <p>Creating</p>}
+                        {type === "create" && <Create/>}
                         {type === "product" && <p>Updating</p>}
                 </section>
             </div>
