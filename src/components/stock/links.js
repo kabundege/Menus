@@ -10,17 +10,17 @@ export default () =>
         </li>
         <li>
             <NavLink to="/stock/product/:id">
-                <span>Update Product</span> <i className="far fa-eye"></i>
+                <span>Update Product</span> <i className="fas fa-marker"></i>
                 </NavLink> 
         </li>
         <li>
             <NavLink to="/stock/create">
-                <span>Create Product</span> <i className="far fa-eye"></i>
+                <span>Create Product</span> <i className="fas fa-plus-circle"></i>
             </NavLink>
         </li>
         <li>
             <NavLink to="/stock/transactions">
-                <span>Transactions</span> <i className="far fa-eye"></i>
+                <span>Transactions</span> <i className="fas fa-exchange-alt"></i>
             </NavLink>
         </li>
     </ul>

@@ -6,11 +6,10 @@ import '../../scss/components/stock/products.scss';
 const Products = ({ products }) => {
     const [ ProdType,setProdType ] = useState();
     let data;
-    
+
     data = ProdType ? 
         products.filter(prod => prod.type === ProdType) :
         products;
-    
     
     return (
         <div className="products">
