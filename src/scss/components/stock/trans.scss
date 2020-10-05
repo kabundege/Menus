@@ -1,0 +1,30 @@
+@import '../../settings/settings.scss';
+
+.transactions{
+  // background:red;
+  width:90%;
+  margin: auto;
+  .trans{
+    padding: 5px;
+    border: 3px solid $baseRose;
+    margin: 1% auto;
+    .input-field{
+      display: flex;
+      margin: 1% auto;
+      padding: 0;
+      border-radius: 5px;
+
+      span{
+        flex:0.8;
+        text-align: left;
+        background: $baseRose;
+        &:first-child{
+          flex: 0.2;
+          background: $baseRose;
+          opacity: 0.9;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
