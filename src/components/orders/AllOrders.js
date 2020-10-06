@@ -26,7 +26,7 @@ class Orders extends Component{
     }
 
     nextVariants = {
-        hidden: { 
+        hidden: {
           x: '-100vw',
         },
         visible: {
@@ -34,7 +34,7 @@ class Orders extends Component{
           transition: { type: 'spring', stiffness: 80 }
         },
       }
-    
+
     handlerChange=(e)=>{
         const { id,value } = e.target;
         this.setState({
@@ -70,10 +70,10 @@ class Orders extends Component{
         return(
                 <div className="container orders">
                         <div className="container input-field search">
-                            <input 
-                                type="text" 
+                            <input
+                                type="text"
                                 placeholder="Find Order..."
-                                id="searchContent" 
+                                id="searchContent"
                                 value={this.state.searchContent}
                                 onChange={this.handlerChange} />
                             <i className="fas fa-search"></i>
@@ -91,18 +91,18 @@ class Orders extends Component{
                                         <li >
                                             <span><img src={orderItem.photoUrl} alt={orderItem.name+' image'}/></span>
                                             <span>{orderItem.name} <Rating/></span>
-                                        </li> 
+                                        </li>
                                     }
                                 </ul>
                             </div>
                         )
                     }
-                    {   data[0] ? 
+                    {   data[0] ?
                         data.map((order,index)=>{
                             let item = items.find(item => parseInt(item.id) === order.item );
-                           
+
                             let type='sec', Duration = moment(order.updatedAt).diff(order.createdAt, "seconds")
-                            
+
                             if(Duration>59&&Duration<3540){
                                 type = 'min';
                                 Duration = moment(order.updatedAt).diff(order.createdAt, "minutes")
@@ -116,7 +116,7 @@ class Orders extends Component{
 
                             return (
                                 <div key={index} className="container order">
-                                    
+
                                     <div className="owner">
                                         <span>owner</span>
                                         <span>{order.owner}</span>
@@ -140,7 +140,7 @@ class Orders extends Component{
                                             <span>Done <i className="red-text fas fa-ban"></i></span> :
                                             <span>Done  <i className="green-text far fa-check-circle"></i></span>
                                         }
-                                    </div> 
+                                    </div>
                                     <div className="status">
                                         <span>status</span>
                                         {
@@ -150,14 +150,14 @@ class Orders extends Component{
                                         }
                                     </div>
                                     {
-                                        userInfo.role === 'ADMIN'&&
+                                        userInfo.role !== 'WAITER'&&
                                         <div className="timestamp">
                                             <span>Waitor</span>
                                             <span>{order.creator_name}</span>
                                         </div>
                                     }
                                     {
-                                        order.status !== 'pending' || userInfo.role === 'ADMIN' ? 
+                                        order.status !== 'pending' || userInfo.role === 'ADMIN' ?
 
                                         <div className="delivered">
                                             <span>served</span>
@@ -168,10 +168,10 @@ class Orders extends Component{
                                             <span>{moment(order.createdAt).calendar()}</span>
                                         </div>
                                     }
-                                    
+
                                     <section>
                                         <Link to={'order/'+order.id}><i className="far fa-eye"></i></Link>
-                                        <span 
+                                        <span
                                             onClick={()=>window.confirm("Are You Sure")&&eraseOrder(order.id)}
                                         ><i className="fas fa-trash"></i></span>
                                     </section>
@@ -186,7 +186,7 @@ class Orders extends Component{
         } else {
             return(
                 <div className="loader">
-                        <Loader size={100} color={"orange"}/> 
+                        <Loader size={100} color={"orange"}/>
                 </div>
             )
         };

@@ -1,13 +1,28 @@
 @import '../../settings/settings.scss';
 
 .transactions{
-  // background:red;
   width:90%;
   margin: auto;
+  padding:5px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  grid-gap: 10px;
+  position:relative;
+
+  @media screen and (max-width:1200px) {
+      grid-template-columns: 1fr 1fr ;
+  }
+  @media screen and (max-width:700px){
+      grid-template-columns: 1fr;
+      width: 95%;
+  }
+
   .trans{
     padding: 5px;
-    border: 3px solid $baseRose;
-    margin: 1% auto;
+    background: $links;
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px 0px grey;
+    border-right: 10px solid $baseRose;
     .input-field{
       display: flex;
       margin: 1% auto;
@@ -17,10 +32,8 @@
       span{
         flex:0.8;
         text-align: left;
-        background: $baseRose;
         &:first-child{
           flex: 0.2;
-          background: $baseRose;
           opacity: 0.9;
           text-align: center;
         }

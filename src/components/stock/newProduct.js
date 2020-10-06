@@ -38,54 +38,54 @@ const NewProduct = ({ stock,createProd,authInfo }) => {
                     <option value="utilities">Utilities</option>
                 </select>
                 <div className="input-field">
-                    <span role="img" aria-label="visible">🙍</span>
-                    <input 
-                        type="text" 
-                        id="avatar" 
+                    <span role="img" aria-label="visible">🚚</span>
+                    <input
+                        type="text"
+                        id="avatar"
                         value={avatar}
-                        onChange={handlerChange} 
-                        placeholder="Deliver name" 
+                        onChange={handlerChange}
+                        placeholder="Deliver name"
                         required/>
                 </div>
                 <div className="input-field">
                     <span role="img" aria-label="visible">🍷</span>
-                    <input 
-                        type="text" 
-                        id="name" 
+                    <input
+                        type="text"
+                        id="name"
                         value={name}
-                        onChange={handlerChange} 
-                        placeholder="Product's Name" 
+                        onChange={handlerChange}
+                        placeholder="Product's Name"
                         required/>
                 </div>
                 <div className="input-field">
                     <span role="img" aria-label="visible">💰</span>
-                    <input 
-                        type="text" 
-                        id="price" 
+                    <input
+                        type="text"
+                        id="price"
                         value={price}
-                        onChange={handlerChange} 
-                        placeholder="Product's worth" 
+                        onChange={handlerChange}
+                        placeholder="Product's worth"
                         required/>
                 </div>
                 <div className="input-field">
-                    <span role="img" aria-label="visible">✨</span>
-                    <input 
-                        type="number" 
-                        id="quantity" 
+                    <span role="img" aria-label="visible">🔢</span>
+                    <input
+                        type="number"
+                        id="quantity"
                         min="0"
                         value={quantity}
-                        onChange={handlerChange} 
-                        placeholder="product's Quantiry" 
+                        onChange={handlerChange}
+                        placeholder="Product's Quantiry" 
                         required/>
                 </div>
                 <p className="error">{stock.fetchError}</p>
-                { userInfo && userInfo.role === "ADMIN" ? 
-                <button 
+                { userInfo && userInfo.role === "ADMIN" ?
+                <button
                     disabled={ name === "" || type === "Type" || quantity === '' || avatar === '' ? true : false }
                 >
                     {
                         !loading ? Done ? 'Done !': 'Create' : <Loader color={"rgb(255, 255, 255)"}/>
-                    } 
+                    }
                 </button> : <p>Not Allowed To Create</p> }
             </form>
         </div>

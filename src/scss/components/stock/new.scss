@@ -1,9 +1,14 @@
+@import '../../settings/settings.scss';
+
 .newProd{
+  form{
+    background: $links;
+  }
     @media screen and(max-width:700px) {
         padding:0;
         width:90%;
         form{
-            margin-top: 5%;
+            margin: 5% auto;
             h3{font-size:25px}
         }
     }

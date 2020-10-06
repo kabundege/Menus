@@ -3,7 +3,7 @@
 .container{
     padding: 10px;
     form{
-        background: $baseRose;
+        background: $links;
         width: 70%;
         margin: 0 auto;
         padding: 20px;
@@ -11,17 +11,16 @@
 
         @media screen and(max-width:1000px) {
             width: 100%;
-            margin-top: -5%;
         }
         @media screen and(max-width:700px) {
             width: 100%;
             margin-top: -15%;
         }
-        
+
 
         h3{
             text-align: center;
-            color: $defaultText;
+            color: $baseRose;
             margin-bottom: 10%;
         }
 
@@ -31,24 +30,24 @@
             @media screen and(max-width:1000px) {
                 width: 50%;
             }
-            
+
         }
 
-        .input-field{    
+        .input-field{
             display: flex;
             margin: 2% 0;
             height: 40px;
             text-align: center;
             background: rgb(230, 230, 230);
             border-radius: 5px;
-    
+
             span  {
                 width: 10%;
                 height: 103%;
                 font-size: 20px;
                 padding-top: 5px;
             }
-        
+
             input[type]   {
                 height: 100%;
                 border: none;

@@ -65,7 +65,7 @@ const Profile = ({ stock,getProd,updateProd,authInfo }) => {
                     <option value="utilities">Utilities</option>
                 </select>
                 <div className="input-field">
-                    <span role="img" aria-label="visible">🙍</span>
+                    <span role="img" aria-label="visible">🚚</span>
                     <input 
                         type="text" 
                         id="avatar" 
@@ -95,7 +95,7 @@ const Profile = ({ stock,getProd,updateProd,authInfo }) => {
                         required/>
                 </div>
                 <div className="input-field">
-                    <span role="img" aria-label="visible">✨</span>
+                    <span role="img" aria-label="visible">🔢</span>
                     <input 
                         type="number" 
                         id="quantity" 

@@ -13,10 +13,10 @@ const Products = ({ products,getProducts,authInfo,deleteProd }) => {
 
     let data;
 
-    data = ProdType ? 
+    data = ProdType ?
         products.filter(prod => prod.type === ProdType) :
         products;
-    
+
     return (
         <div className="products">
             <section>
@@ -44,14 +44,14 @@ const Products = ({ products,getProducts,authInfo,deleteProd }) => {
                                 <span>{prod.price} <strong style={{color:"orange",fontWeight:"bold"}}>Rwf</strong></span>
                             </p>
                             <p>
-                                <span>Delivery</span>
+                                <span style={{borderBottomRightRadius:"30px"}}>Delivery</span>
                                 <span>{prod.avatar}</span>
                             </p>
                             <p>
                                 <Link to={'/stock/product/'+prod.id}><i className="far fa-eye"></i></Link>
 
                                 {   role === "ADMIN" &&
-                                    <span 
+                                    <span
                                     onClick={()=>window.confirm("Are You Sure")&&deleteProd(prod.id)}
                                     ><i className="fas fa-trash"></i></span>
                                 }

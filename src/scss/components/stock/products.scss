@@ -36,10 +36,10 @@
         position:relative;
 
         @media screen and (max-width:1200px) {
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
         }
         @media screen and (max-width:700px){
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr ;
             width: 100%;
         }
         .loader{
@@ -53,12 +53,28 @@
             }
         }
         .product{
-            background:lightgrey;
+            background:$links;
             padding:0;
             text-align:center;
             box-shadow:0px 5px 10px 0px $links;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
             p{
                 display:flex;
+
+                span{
+                    flex:0.5;
+                    padding:2px;
+                    &:first-child {
+                        background:$baseRose;
+                    }
+                    &:last-child  {
+                        font-weight:bold;
+                        text-align: left;
+                        padding-left: 5px;
+                    }
+                }
+
                 &:first-child{
                     background:$links*2;
                     border-top-left-radius:3px;
@@ -69,30 +85,25 @@
                         text-transform:uppercase;
                     }
                 }
-                
+
                 &:last-child  {
                     margin:2% 0;
                     span,a{
                         flex:0.5;
                         margin: auto;
                         color:$links;
-                        i{ color: $links }
+                        text-align: center;
+                        i{
+                          color: $links;
+                          background: $baseRose;
+                          padding: 10px;
+                          border-radius: 50%
+                         }
 
                         &:hover{
                             color: $baseRose;
-                            i{ color: $baseRose }
+                            i{ color: $defaultText}
                         }
-                    }
-                }
-                span{
-                    flex:0.5;
-                    padding:2px;
-                    &:first-child {
-                        background:$baseRose;
-                    }
-                    &:last-child  {
-                        font-weight:bold;
-                        color:$links;
                     }
                 }
             }
