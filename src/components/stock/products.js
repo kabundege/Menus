@@ -9,7 +9,7 @@ const Products = ({ products,getProducts,authInfo,deleteProd }) => {
     const { role } = authInfo;
     const [ ProdType,setProdType ] = useState();
 
-    useEffect((get = getProducts)=>{ get() },[])
+    useEffect(()=>{ getProducts() },[getProducts])
 
     let data;
 

@@ -1,10 +1,12 @@
-import React from 'react';
+import React,{ useEffect } from 'react';
+import moment from "moment";
 import { connect } from 'react-redux';
 import Loader from "react-spinners/RotateLoader";
 import '../../scss/components/stock/trans.scss';
-import moment from "moment";
+import { AllTrans } from '../../store/actions/Actions';
 
-const Trans = ({ transactions }) => {
+const Trans = ({ transactions,getTrans }) => {
+    useEffect(()=>{ getTrans() },[getTrans])
     return(
         <div className="transactions">
             { transactions[0] ?
@@ -38,7 +40,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    getTrans : ()  => dispatch()
+    getTrans : ()  => dispatch(AllTrans())
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(Trans);

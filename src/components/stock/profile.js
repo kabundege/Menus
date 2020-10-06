@@ -40,7 +40,7 @@ const Profile = ({ stock,getProd,updateProd,authInfo }) => {
         }else{
             setPayload(product)
         }
-    },[id,product])
+    },[id,product,getProd,newId])
     
     const handlerChange = e => {
         const { id,value } = e.target;
@@ -51,7 +51,7 @@ const Profile = ({ stock,getProd,updateProd,authInfo }) => {
     const handlerSubmit = e => {
         e.preventDefault();
         setDone(true)
-        updateProd(id,{avatar,name,type,quantity})
+        updateProd(id,{avatar,name,type,quantity,price})
     }
 
     return (
