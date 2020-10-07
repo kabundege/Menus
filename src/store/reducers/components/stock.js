@@ -10,6 +10,11 @@ const StockReducer = (state = initState,Action) => {
     const { type,action }  = Action;
 
     switch(type){
+        case 'createProduct_Error':
+            return state = {
+                ...state,
+                fetchError: action,
+            }
         case 'UpdateProduct_Error':
             return state = {
                 ...state,

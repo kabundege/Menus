@@ -6,7 +6,8 @@ import '../../scss/components/stock/products.scss';
 import { AllProducts,deleteProduct } from '../../store/actions/Actions';
 
 const Products = ({ products,getProducts,authInfo,deleteProd }) => {
-    const { role } = authInfo;
+    const { loading,userInfo } = authInfo;
+    const { role } = userInfo;
     const [ ProdType,setProdType ] = useState();
 
     useEffect(()=>{ getProducts() },[getProducts])
@@ -16,7 +17,7 @@ const Products = ({ products,getProducts,authInfo,deleteProd }) => {
     data = ProdType ?
         products.filter(prod => prod.type === ProdType) :
         products;
-
+    if(!loading)
     return (
         <div className="products">
             <section>
@@ -57,16 +58,17 @@ const Products = ({ products,getProducts,authInfo,deleteProd }) => {
                                 }
                             </p>
                         </div>
-                    )): <div className="loader"><Loader size={100} color={"orange"}/></div>
+                    )): <h3 className="grey-text center">None Found ☣</h3>
                     }
             </div>
         </div>
     )
+    return <div className="loader"><Loader size={100} color={"orange"}/></div>
 }
 
 const mapStateToProps = state => ({
     products: state.stock.products,
-    authInfo: state.auth.userInfo,
+    authInfo: state.auth,
 })
 
 const mapDipatchToProps = dispatch => ({

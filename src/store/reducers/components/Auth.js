@@ -7,37 +7,45 @@ const initState = {
     },
     authError:null,
     loading:false,
-    userCreated:false
+    userCreated:false,
+    Network_Error:false,
 }
 
-const authReducer = (state = initState,action) => {
-    const Action  = action.action;
-    switch(action.type){
+const authReducer = (state = initState,Action) => {
+    const { type,action } = Action;
+    switch(type){
         case'Loading':
             return state = {
                 ...state,
                 loading:true,
                 userCreated:false,
+                Network_Error:false
             }
         case'Stop_Loading':
             return state = {
                 ...state,
                 loading:false
             }
+        case'Network_Error':
+            return state = {
+                ...state,
+                loading:false,
+                Network_Error:true
+            }
         case 'CreateUser_Error':
             return state = {
                 ...state,
-                authError:Action
+                authError:action
             }
         case 'Login_Error':
             return state = {
                 ...state,
-                authError: action.action,
+                authError: action,
             }
         case 'Login_Success':
-            localStorage.setItem("token",Action.token)
+            localStorage.setItem("token",action.token)
             return state = {
-                userInfo: {...Action},
+                userInfo: {...action},
                 authError:null,
             }
         case 'CreateUser_Success':

@@ -50,7 +50,7 @@ const Profile = ({ stock,getProd,updateProd,authInfo }) => {
 
     const handlerSubmit = e => {
         e.preventDefault();
-        setDone(true)
+        setDone(true);
         updateProd(id,{avatar,name,type,quantity,price})
     }
 

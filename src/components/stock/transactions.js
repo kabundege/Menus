@@ -7,7 +7,16 @@ import { AllTrans } from '../../store/actions/Actions';
 
 const Trans = ({ transactions,getTrans }) => {
     useEffect(()=>{ getTrans() },[getTrans])
+    const display = (data) => ({__html:data})
     return(
+        <>
+        <div className="pagination">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+        </div>
         <div className="transactions">
             { transactions[0] ?
                 transactions.map(trans=>(
@@ -22,7 +31,7 @@ const Trans = ({ transactions,getTrans }) => {
                       </div>
                       <div className="input-field">
                           <span role="img" aria-label="visible">📑</span>
-                          <span>{trans.details}</span>
+                          <span dangerouslySetInnerHTML={display(trans.details)}/>
                       </div>
                       <div className="input-field">
                           <span role="img" aria-label="visible">📅</span>
@@ -32,6 +41,7 @@ const Trans = ({ transactions,getTrans }) => {
                 )): <div className="loader"><Loader size={100} color={"orange"}/></div>
             }
         </div>
+        </>
     )
 }
 

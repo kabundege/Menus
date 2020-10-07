@@ -43,14 +43,14 @@ class GuestHome extends Component{
         return(
             <>
                 <FoodTypes />
-                <Items items={items} addToCart={AddToCart} role={authInfo.role} deleteItem={this.handlerDelete}/>
+                <Items items={items} addToCart={AddToCart} authInfo={authInfo} deleteItem={this.handlerDelete}/>
             </>
         )
     }
 }
 
 const mapStateToProps = (state) => ({
-        authInfo: state.auth.userInfo,
+        authInfo: state.auth,
         items:state.items,
     })
 

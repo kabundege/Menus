@@ -37,6 +37,9 @@ export const reqHandler = (url,method,payload,action) => {
             }else{
                 dispatch({ type :`${actionName}_Success`,action: data.data})
             } 
+        }).catch(err=>{ 
+            if(err) 
+            dispatch({ type:'Network_Error',action:{} })
         });
     }
 };

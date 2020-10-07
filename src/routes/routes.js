@@ -7,6 +7,7 @@ import Login from '../components/auth/admin';
 import Header from '../components/helpers/Header';
 import Users from '../components/dashboard/Users';
 import Stock from '../components/dashboard/stock';
+import Network from '../components/layout/network';
 import Orders from '../components/orders/AllOrders';
 import GuestHome from '../components/dashboard/Home';
 import Order from '../components/orders/SpecificOrder';
@@ -20,6 +21,7 @@ class App extends Component {
         <div className="App">
           <Header/>
           <Socket/>
+          <Network/>
           <Switch >
             <Route path='/' exact component={Login}/>
             <Route path='/Dash' component={GuestHome}/>
